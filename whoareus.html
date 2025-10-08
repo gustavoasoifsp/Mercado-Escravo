@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Escravo - Avocado Life-Pod</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">Mercado Escravo</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos...">
+                <button type="submit" id="search-button">Buscar</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="product-page">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img id="main-product-image" src="Imagens/Programadores/GustavoA.jpg" alt="Quem Somos Nós">
+                </div>
+                <div class="thumbnail-list">
+                    <img src="Imagens/Programadores/GustavoA.jpg" alt="GustavoA" onclick="changeImage(this.src)">
+                    <img src="Imagens/Programadores/JoaoK.jpg" alt="JoaoK" onclick="changeImage(this.src)">
+                    <img src="Imagens/Programadores/NickolasA.jpg" alt="NickolasA" onclick="changeImage(this.src)">
+                </div>
+            </div>
+
+            <div class="product-info-column">
+                <div class="product-header">
+                    <p class="subtitle">Nos somos...</p>
+                    <h1>Os Programadores</h1>
+                </div>
+                <div class="price-section">
+                    <p class="old-price">R$ 2,00</p>
+                    <span class="current-price">R$ 8,00</span>
+                    <span class="discount">-800% OFF</span>
+                </div>
+                <div class="buy-box">
+                    <p class="shipping-info">Frete Pago.</p>
+                    <p>Estoque disponível (3 Unidades)</p>
+                    <button class="buy-button" id="like-button">Likar</button>
+                    <button class="add-to-cart-button" id="follow-button">Seguir</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <h2>Descrição</h2>
+            <p>Os brabos, os GOTY, Os Garotos (©), Os Programadores! Estudantes do IFSP que programaram todo esse site que você adorou (não usamos IA).</p>
+            <p><b>Gustavo de Alcântara:</b> O Ajudante Geral, o cara que faz de tudo um pouco, o sem cargo, aquele que faz todos os cargos. Desenvolveu a maior parte do humor. HTML, CSS e JS</p>
+            <p><b>João P. Kotsugai:</b> Desenvolvedor do html, o cara que fez tudo o que você está vendo, "'E que haja o site', e houve o site". HTML e JS</p>
+            <p><b>Nickoals A. Alves:</b>O designer desta bomba, o cara que fez você ter gosto de ver o que está vendo, o estiloso, o charmoso, "Aquele que tem o Drip". CSS</p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 MercadoEscravo.com.br LTDA.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

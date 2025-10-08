@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Escravo - Avocado Life-Pod</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">Mercado Escravo</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos...">
+                <button type="submit" id="search-button">Buscar</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="product-page">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img id="main-product-image" src="Imagens/Avocado Life-Pod/protetor1.jpeg" alt="Quem Somos Nós">
+                </div>
+                <div class="thumbnail-list">
+                    <img src="Imagens/Avocado Life-Pod/protetor1.jpeg" alt="Miniatura 1" onclick="changeImage(this.src)">
+                    <img src="Imagens/Avocado Life-Pod/protetor2.jpeg" alt="Miniatura 2" onclick="changeImage(this.src)">
+                    <img src="Imagens/Avocado Life-Pod/protetor3.png" alt="Miniatura 3" onclick="changeImage(this.src)">
+                </div>
+            </div>
+
+            <div class="product-info-column">
+                <div class="product-header">
+                    <p class="subtitle">Nos somos...</p>
+                    <h1>The Programmers</h1>
+                </div>
+                <div class="price-section">
+                    <p class="old-price">R$ 2,00</p>
+                    <span class="current-price">R$ 8,00</span>
+                    <span class="discount">-800% OFF</span>
+                </div>
+                <div class="buy-box">
+                    <p class="shipping-info">Frete Pago.</p>
+                    <p>Estoque disponível (3 Unidades)</p>
+                    <button class="buy-button" id="buy-now">Likar</button>
+                    <button class="add-to-cart-button" id="add-to-cart">Seguir (Stalkear)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <h2>Descrição</h2>
+            <p>Os brabos, os GOTY, Os Garotos (©), The Programmers! Estudantes do IFSP que programaram todo esse site que você adorou (não usamos IA). Fizemos isso por 2 motivos: Nota, Conscientizar. Embora (talvez) estejamos pendendo um pouco mais para um dos objetivos o outro não deixa de ser importante! Você pode pensar "Ah, cuidar do planeta? Bagulho de Beta, tenho outras coisas mais importantes pra fazer", mas pense, é O PLANETA. Do que adianta ser advogado ou médico se não houver planeta? É a nossa única casa, na verdade, é o único lugar que podemos ficar vivos! Não há outro, só um, quase nenhum agora. O planeta está em estado crítico, tudo o que fizermos pode alterar o destino da humanidade (você está incluído nisso). </p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 MercadoEscravo.com.br LTDA.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

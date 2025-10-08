@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Escravo - Avocado Life-Pod</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">Mercado Escravo</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos...">
+                <button type="submit" id="search-button">Buscar</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="product-page">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img id="main-product-image" src="Imagens/Avocado Life-Pod/protetor1.jpeg" alt="Avocado Life-Pod">
+                </div>
+                <div class="thumbnail-list">
+                    <img src="Imagens/Avocado Life-Pod/protetor1.jpeg" alt="Miniatura 1" onclick="changeImage(this.src)">
+                    <img src="Imagens/Avocado Life-Pod/protetor2.jpeg" alt="Miniatura 2" onclick="changeImage(this.src)">
+                    <img src="Imagens/Avocado Life-Pod/protetor3.png" alt="Miniatura 3" onclick="changeImage(this.src)">
+                </div>
+            </div>
+
+            <div class="product-info-column">
+                <div class="product-header">
+                    <p class="subtitle">Novo | +1 vendido</p>
+                    <h1>Avocado Life-Pod</h1>
+                </div>
+                <div class="price-section">
+                    <p class="old-price">R$ 100,00</p>
+                    <span class="current-price">R$ 10,00</span>
+                    <span class="discount">90% OFF</span>
+                </div>
+                <div class="buy-box">
+                    <p class="shipping-info">Frete Grátis.</p>
+                    <p>Estoque disponível</p>
+                    <button class="buy-button" id="buy-now">Comprar</button>
+                    <button class="add-to-cart-button" id="add-to-cart">Adicionar ao carrinho</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <h2>Descrição</h2>
+            <p>Cansado de desperdiçar a outra metade do seu abacate? O Avocado Life-Pod é a solução. Com seu design ergonômico e sistema de vedação de silicone, ele abraça a metade restante, reduzindo a oxidação e mantendo o frescor por até 24 horas a mais. Um item indispensável para quem leva a sério seu toast de abacate. Se um pote não é estiloso o suficiente, o Life-Pod é a solução.</p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 MercadoEscravo.com.br LTDA.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
