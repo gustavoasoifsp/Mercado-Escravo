@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mercado Escravo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+    <!-- Cabeçalho Principal -->
     <header class="main-header">
         <div class="container header-content">
-            <a href="index.html" class="logo">Mercado Escravo</a>
+            <a href="index.html" class="logo">Mercado Escravo - Sobre Nós</a>
             <div class="search-bar">
-                <input type="text" placeholder="Buscar produtos (só tem esses daí)">
+                <input type="text" placeholder="Buscar produtos (só tem esses daí)" />
                 <button type="submit" id="search-button">Buscar</button>
             </div>
             <nav class="user-nav">
@@ -24,34 +25,54 @@
         </div>
     </header>
 
+    <!-- Conteúdo Principal -->
     <main class="container">
+        <!-- Banner -->
         <section class="hero">
-            <img src="" alt="Banner">
+            <img src="" alt="Banner" />
         </section>
 
+        <!-- Seção de Produtos -->
         <section class="products-section">
-            <h2>Sobre Nós</h2>
+            <h2>Informações</h2>
             <div class="product-grid">
+                <!-- Card de Produto 1 -->
                 <a href="whoareus.html" class="product-card">
-                    <img src="Imagens/programmers.png" alt="Quem Nós Somos?">
+                    <img src="Imagens/programmers.png" alt="Produto 1" />
                     <div class="product-info">
-                        <h3>Quem Nós Somos?</h3>
+                        <div class="price-container">
+                            <span class="current-price">Quem Somos Nós?</span>
+                        </div>
                     </div>
                 </a>
-
-                <a href="produto2.html" class="product-card">
-                    <img src="produto2.jpg" alt="Por que estamos fazendo isso?">
-                    <div class="product-info">
-                        <h3>Por que estamos fazendo isso?</h3>
-                    </div>
-                </a>
-
-                <!-- É só ficar copiando pra colocar mais -->
             </div>
-        </section>        
+        </section>
 
+        <!-- Seção de Serviços -->
+        <section class="services-section">
+            <h2>Serviços</h2>
+            <div class="services-grid">
+                <a href="service1.html" class="service-card">
+                    <h3>The Weekly Drop</h3>
+                    <p>Assinatura de Micro-Tendências de Moda</p>
+                </a>
+                <div class="service-card">
+                    <h3>Consultoria Personalizada</h3>
+                    <p>Orientação para escolher os melhores produtos para o seu estilo de vida.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Entrega Rápida</h3>
+                    <p>Opções de entrega expressa para receber suas compras com rapidez.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Garantia e Devoluções</h3>
+                    <p>Política clara e segura para troca ou devolução de produtos.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- Rodapé -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-links">
@@ -62,6 +83,7 @@
             <p class="copyright">© 2025 MercadoEscravo.com.br</p>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function iniciarNotificacoes() {
         const notificationsEl = document.getElementById('purchase-notifications');
         if (notificationsEl) {
-             setInterval(criarNotificacaoCompra, Math.floor(Math.random() * 12000) + 8000);
+             setInterval(criarNotificacaoCompra, Math.floor(Math.random() * 1200) + 4000);
         }
     }
 
