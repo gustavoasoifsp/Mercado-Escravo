@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function generateViewerCount() {
         const viewerCountEl = document.getElementById('viewer-count');
         if (viewerCountEl) {
-            const count = Math.floor(Math.random() * 50000) + 1000000;
+            const count = Math.floor(Math.random() * 900000);
             viewerCountEl.textContent = `${count.toLocaleString()} pessoas vendo agora`;
         }
     }
