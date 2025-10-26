@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonte™ - Garrafa Inteligente | Mercado Escravo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html"><h1 class="logo">Mercado<span>Escravo</span></h1></a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos" />
+                <button type="submit" id="search-button">Buscar</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Nossos Objetivos™</a></li>
+                    <li><a href="#">Carrinho (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container product-page-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="img/Fonte/garrafa2.jpg" alt="Garrafa de água com luzes de LED">
+            </div>
+            <div class="thumbnails">
+                <img src="img/Fonte/garrafa2.jpg" alt="Thumbnail 1" class="thumbnail active">
+                <img src="img/Fonte/garrafa1.jpg" alt="Thumbnail 2" class="thumbnail">
+                <img src="img/Fonte/garrafa3.jpg" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Fonte™ - Garrafa Inteligente</h1>
+            <p class="tagline">Porque lembrar de beber água é uma tarefa muito humana.</p>
+            <div class="price">R$ 499,90 <span class="old-price">R$ 899,90</span></div>
+
+            <div class="call-to-action">
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn" class="buy-button">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="urgency-metrics">
+                <div class="metric">🔥 <span class="fake-counter">348</span> pessoas terceirizando a sede!</div>
+                <div class="metric">📦 Apenas <span class="fake-stock">6</span> unidades!</div>
+            </div>
+
+            <div class="product-description">
+                <h3>Descrição</h3>
+                <p>Apresentamos a <strong>Fonte™</strong>, a garrafa de água conectada que entende que a hidratação é uma jornada espiritual. Com luzes LED que piscam de forma <em>inteligente</em> sempre que você ignora o básico da sobrevivência, ela se conecta via Bluetooth ao nosso app, que gentilmente te avisa que você é feito 70% de água e 100% de dependência tecnológica.</p>
+            </div>
+        </div>
+
+        <div class="product-extra-info">
+            <h3>Especificações Técnicas</h3>
+            <ul>
+                <li><strong>Capacidade:</strong> 600 ml</li>
+                <li><strong>Conectividade:</strong> Bluetooth 5.0</li>
+                <li><strong>Bateria:</strong> 10 dias de autonomia com lembretes constantes</li>
+                <li><strong>Iluminação:</strong> LEDs RGB</li>
+                <li><strong>Compatibilidade:</strong> iOS, Android</li>
+                <li><strong>Material:</strong> Plástico premium</li>
+            </ul>
+
+            <h3 class="reviews-title">Avaliações de Nossos Clientes</h3>
+            <div class="review">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-body">"Antes eu esquecia de beber água. Agora esqueço de carregar a garrafa. Progresso!"</p>
+                <div class="review-author">- Rafael, UX Designer</div>
+            </div>
+            <div class="review">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-body">"As luzes piscam quando não bebo, mas também piscam quando bebo demais. É praticamente um relacionamento." </p>
+                <div class="review-author">- Camila, Coach de Respiração</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Escravo. Seus dados são nosso ativo mais valioso. Leia nossos <a href="#">Termos de Servidão Voluntária</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
