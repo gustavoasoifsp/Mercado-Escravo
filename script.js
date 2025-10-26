@@ -1,112 +1,104 @@
-// Aguarda o DOM carregar antes de executar
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Variáveis Globais e Configurações ---
-    let estoque = Math.floor(Math.random() * 49) + 2; // Estoque inicial aleatório
-    const nomes = ["João", "Maria", "Carlos", "Fernanda", "Rafael", "Luciana", "Marcos", "Beatriz", "Gabriel", "Sofia", "Eduardo"]; // Nomes para simulação
-
-    // --- Funções Principais ---
-
-    // Altera a imagem principal na galeria
-    window.changeImage = function(src) {
-        const mainImage = document.getElementById('main-product-image');
-        if (mainImage) {
-            mainImage.src = src;
-        }
-    };
-
-    // Gera o número de espectadores
-    function generateViewerCount() {
-        const viewerCountEl = document.getElementById('viewer-count');
-        if (viewerCountEl) {
-            const count = Math.floor(Math.random() * 900000);
-            viewerCountEl.textContent = `${count.toLocaleString()} pessoas vendo agora`;
-        }
-    }
+/* 1. LÓGICA COMPARTILHADA (CARRINHO DE COMPRAS)*/
     
-    // Atualiza a exibição de estoque na tela
-    function atualizarEstoque() {
-        const display = document.getElementById('stock-display');
-        if (display) {
-            if (estoque > 1) {
-                display.textContent = `Estoque disponível - ${estoque} unidades`;
-            } else if (estoque === 1) {
-                display.textContent = `Última unidade!`;
-            } else {
-                display.textContent = `Produto esgotado`;
-            }
+    const cartCountElement = document.getElementById('cart-count');
+
+    // Lê o valor do carrinho do armazenamento local do navegador
+    function getCartCount() {
+        return parseInt(localStorage.getItem('mercadoEscravoCart') || '0');
+    }
+
+    // Atualiza o número no ícone do carrinho
+    function updateCartDisplay() {
+        if (cartCountElement) {
+            cartCountElement.textContent = getCartCount();
         }
     }
 
-    // Simula uma compra, diminui o estoque e exibe a notificação
-    function criarNotificacaoCompra() {
-        if (estoque > 1) {
-            estoque--;
-            atualizarEstoque();
+    // Adiciona um item ao carrinho
+    function addToCart(quantity = 1) {
+        let currentCount = getCartCount();
+        currentCount += quantity;
+        localStorage.setItem('mercadoEscravoCart', currentCount);
+        updateCartDisplay();
+    }
 
-            const container = document.getElementById("purchase-notifications");
-            if (container) {
-                const nome = nomes[Math.floor(Math.random() * nomes.length)];
-                const card = document.createElement("div");
-                card.classList.add("purchase-card");
-                card.textContent = `${nome} acabou de comprar este produto!`;
-                container.appendChild(card);
 
+/* 2. LÓGICA CONDICIONAL: SÓ RODA NA PÁGINA INICIAL*/
+    
+    // Verifica a existência de um elemento único da home page
+    if (document.getElementById('produtos')) {
+        
+        // --- Manipulação de Contadores e Estoque Falsos ---
+        const fakeCounters = document.querySelectorAll('.fake-counter');
+        fakeCounters.forEach(counter => {
+            let count = parseInt(counter.textContent) || Math.floor(Math.random() * 300) + 100;
+            counter.textContent = count;
+            setInterval(() => {
+                count += Math.floor(Math.random() * 7) - 3;
+                if (count < 100) count = 100;
+                counter.textContent = count;
+            }, Math.random() * 3000 + 2000);
+        });
+
+        // --- Notificações Falsas de Compra ---
+        const fakeNotification = document.getElementById('fake-notification');
+        const names = ['Júlia', 'Lucas', 'Beatriz', 'Guilherme', 'Mariana', 'Rafael'];
+        const cities = ['de Campinas', 'de Brasília', 'de BH', 'de Salvador', 'de Fortaleza'];
+        function showFakePurchase() {
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomCity = cities[Math.floor(Math.random() * cities.length)];
+            fakeNotification.textContent = `⚡️ ${randomName} ${randomCity} acabou de fazer uma compra!`;
+            fakeNotification.classList.add('show');
+            setTimeout(() => fakeNotification.classList.remove('show'), 4000);
+        }
+        setTimeout(showFakePurchase, 6000);
+        setInterval(showFakePurchase, Math.random() * 10000 + 7000);
+
+        // --- Botões de Compra da Home Page ---
+        const buyButtons = document.querySelectorAll('.buy-button');
+        buyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                addToCart(1); // Adiciona 1 item ao carrinho
+
+                // Mostra o alerta sarcástico
                 setTimeout(() => {
-                    if (card.parentNode) {
-                        card.parentNode.removeChild(card);
-                    }
-                }, 6000);
-            }
-        }
-    }
-
-    // Inicia o ciclo de compras simuladas
-    function iniciarNotificacoes() {
-        const notificationsEl = document.getElementById('purchase-notifications');
-        if (notificationsEl) {
-             setInterval(criarNotificacaoCompra, Math.floor(Math.random() * 1200) + 4000);
-        }
-    }
-
-    // --- Event Listeners (Ações do Usuário) ---
-    // Verifica se cada elemento existe antes de adicionar o evento
-
-    const searchButton = document.getElementById('search-button');
-    if (searchButton) {
-        searchButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Só tem esses produtos. Tá querendo demais já');
+                    const productName = button.getAttribute('data-product-name');
+                }, 100);
+            });
         });
     }
 
-    const buyNowButton = document.getElementById('buy-now');
-    if (buyNowButton) {
-        buyNowButton.addEventListener('click', () => {
-             alert('Obviamente não tem como comprar...');
-        });
-    }
 
-    const addToCartButton = document.getElementById('add-to-cart');
-    if (addToCartButton) {
-        addToCartButton.addEventListener('click', () => {
-            alert('Não tem DataBank, não foi guardado');
-        });
-    }
-
-    const likeButton = document.getElementById('like-button');
-    if (likeButton) {
-        likeButton.addEventListener('click', () => alert('UwU'));
-    }
-
-    const followButton = document.getElementById('follow-button');
-    if (followButton) {
-        followButton.addEventListener('click', () => alert('Para de me stalkear!'));
-    }
+/* 3. LÓGICA CONDICIONAL: SÓ RODA NA PÁGINA DE PRODUTO*/
     
-    // --- Inicialização ---
-    // Chama as funções que precisam rodar quando carregar a página
-    generateViewerCount();
-    atualizarEstoque();
-    iniciarNotificacoes();
+    // Verifica a existência de um elemento único da página de produto
+    if (document.querySelector('.product-page-container')) {
+
+        // --- Galeria de Imagens ---
+        const mainImage = document.getElementById('main-product-image');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                mainImage.src = thumb.src;
+            });
+        });
+
+        // --- Botão de Adicionar ao Carrinho da Página de Produto ---
+        const addToCartButton = document.getElementById('add-to-cart-btn');
+        const quantityInput = document.getElementById('quantity');
+        
+        addToCartButton.addEventListener('click', () => {
+            const quantity = parseInt(quantityInput.value) || 1;
+            addToCart(quantity);
+        });
+    }
+
+/* 4. INICIALIZAÇÃO GLOBAL*/
+
+    // Garante que o carrinho seja exibido corretamente em qualquer página
+    updateCartDisplay();
 });

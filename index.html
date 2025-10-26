@@ -1,120 +1,159 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mercado Escravo</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Escravo - Compre. Consuma. Descarte. Repita.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Cabeçalho Principal -->
-    <header class="main-header">
-        <div class="container header-content">
-            <a href="index.html" class="logo">Mercado Escravo</a>
+    <header>
+        <div class="container">
+            <a href="index.html"><h1 class="logo">Mercado<span>Escravo</span></h1></a>
             <div class="search-bar">
-                <input type="text" placeholder="Buscar produtos (só tem esses daí)" />
+                <input type="text" placeholder="Buscar produtos" />
                 <button type="submit" id="search-button">Buscar</button>
             </div>
-            <nav class="user-nav">
-                <a href="#">Crie sua conta</a>
-                <a href="#">Entre por sua conta</a>
-                <a href="#">Minhas Compras</a>
-                <a href="#" id="cart-button">🛒</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Nossos Objetivos™</a></li>
+                    <li><a href="#">Carrinho (<span id="cart-count">0</span>)</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
     <main class="container">
-        <!-- Banner -->
         <section class="hero">
-            <img src="" alt="Banner" />
+            <h2>BUY NOW!</h2>
+            <p>Não deixe para amanhã o que você pode preencher com uma compra hoje!</p>
         </section>
 
-        <!-- Seção de Produtos -->
-        <section class="products-section">
-            <h2>Ofertas da Hora!</h2>
-            <div class="product-grid">
-                <!-- Card de Produto 1 -->
-                <a href="produto1.html" class="product-card">
-                    <img src="Imagens/Avocado Life-Pod/protetor1.jpeg" alt="Produto 1" />
-                    <div class="product-info">
-                        <h3>Avocado Life-Pod</h3>
-                        <div class="price-container">
-                            <span class="old-price">R$ 150,00</span>
-                            <span class="current-price">R$ 120,00</span>
-                            <span class="discount">20% OFF</span>
-                        </div>
-                        <div class="shipping">Frete grátis</div>
-                    </div>
-                </a>
+        <!-- =========== SEÇÃO DE PRODUTOS =========== -->
+        <section id="produtos" class="content-section">
+            <h2 class="section-title">Produtos — Soluções para suas Inconveniências</h2>
+            <div class="card-container">
 
-                <!-- Card de Produto 2 -->
-                <a href="produto2.html" class="product-card">
-                    <img src="Imagens/Fonte/garrafa3.jpg" alt="Produto 2" />
-                    <div class="product-info">
-                        <h3>Fonte</h3>
-                        <div class="price-container">
-                            <span class="old-price">R$ 250,00</span>
-                            <span class="current-price">R$ 180,00</span>
-                            <span class="discount">60% OFF</span>
-                        </div>
-                        <div class="shipping">Frete grátis</div>
+                <!-- Produto 1 -->
+                <div class="product-card">
+                    <a href="avocado.html" class="product-link">
+                    <img src="img/Avocado Life-Pod/protetor1.jpeg" alt="Cápsula de plástico para guardar metade de um abacate">
+                    <h3>Avocado Life-Pod™</h3>
+                    </a>
+                    <p class="description">Eleve seu brunch. Com design ergonômico e vedação de silicone, nosso pod abraça a metade restante do seu abacate.</p>
+                    <div class="price">R$ 89,90 <span class="old-price">R$ 159,90</span></div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🔥 <span class="fake-counter">215</span> foodies estão otimizando!</div>
+                        <div class="metric">📦 Restam <span class="fake-stock">9</span> unidades!</div>
                     </div>
-                </a>
+                    <button class="buy-button" data-product-name="Avocado Life-Pod™">SALVAR MEU ABACATE</button>
+                </div>
 
-                <!-- Card de Produto 3 -->
-                <a href="produto3.html" class="product-card">
-                    <img src="Imagens/Zonas/mascara1.jpg" alt="Produto 3" />
-                    <div class="product-info">
-                        <h3>Zonas</h3>
-                        <div class="price-container">
-                            <span class="old-price">R$ 80,00</span>
-                            <span class="current-price">R$ 72,00</span>
-                            <span class="discount">10% OFF</span>
-                        </div>
-                        <div class="shipping">Frete grátis</div>
+                <!-- Produto 2 -->
+                <div class="product-card">
+                    <a href="fonte.html" class="product-link">
+                    <img src="img/Fonte/garrafa2.jpg" alt="Garrafa de água com luzes de LED">
+                    <h3>Fonte - Garrafa Inteligente</h3>
+                    </a>
+                    <p class="description">Sincronize via Bluetooth e deixe que nosso app envie notificações para você não esquecer de sentir sede.</p>
+                    <div class="price">R$ 499,90 <span class="old-price">R$ 899,90</span></div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🔥 <span class="fake-counter">348</span> pessoas terceirizando a sede!</div>
+                        <div class="metric">📦 Apenas <span class="fake-stock">6</span> unidades!</div>
                     </div>
-                </a>
+                    <button class="buy-button" data-product-name="Fonte - Garrafa Inteligente">BEBER COM INTENÇÃO</button>
+                </div>
+
             </div>
         </section>
 
-        <!-- Seção de Serviços -->
-        <section class="services-section">
-            <h2>Serviços</h2>
-            <div class="services-grid">
-                <a href="service1.html" class="service-card">
+        <!-- =========== SEÇÃO DE SERVIÇOS =========== -->
+        <section id="servicos" class="content-section">
+            <h2 class="section-title">Serviços — Terceirize Seu Esforço</h2>
+            <div class="card-container">
+
+                <!-- Serviço 1 -->
+                <div class="product-card">
+                    <a href="" class="product-link"></a>
+                    <img src="https://i.imgur.com/QhYhA2V.png" alt="Caixa de assinatura com roupas descartáveis">
                     <h3>The Weekly Drop</h3>
-                    <p>Assinatura de Micro-Tendências de Moda</p>
-                </a>
-                <a href="service2.html" class="service-card">
-                    <h3>Pronto!</h3>
-                    <p>Serviço de Entrega de Item Único em Minutos</p>
-                </a>
-                <a href="service3.html" class="service-card">
-                    <h3>Origens</h3>
-                    <p>Box Gastronômico com Ingredientes Globais</p>
-                </a>
-                <a href="service1.html" class="service-card">
-                    <h3>The Weekly Drop</h3>
-                    <p>Assinatura de Micro-Tendências de Moda</p>
-                </a>
+                    <p class="description">Assine e receba toda semana uma caixa com micro-tendências de moda. Use uma vez, poste sempre. Nosso serviço normaliza o descarte, liberando você do fardo da posse.</p>
+                    <div class="price">R$ 299,90/mês</div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🔥 <span class="fake-counter">412</span> influencers estão assinando!</div>
+                        <div class="metric">📈 Vagas na assinatura quase esgotadas!</div>
+                    </div>
+                    <button class="buy-button" data-product-name="Assinatura The Weekly Drop">DESCARTAR COM ESTILO</button>
+                </div>
+
+                <!-- Serviço 2 -->
+                 <div class="product-card">
+                    <a href="" class="product-link"></a>
+                    <img src="https://i.imgur.com/iZ2tZzG.png" alt="Entregador de moto correndo muito rápido">
+                    <h3>Pronto! Entrega em 15 Min</h3>
+                    <p class="description">Precisa de um único item, agora? Despachamos um entregador para levar um refrigerante ou uma pilha. A conveniência nunca foi tão irresistível.</p>
+                    <div class="price">Taxa de R$ 19,90 por item</div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🔥 <span class="fake-counter">503</span> imediatistas estão pedindo!</div>
+                        <div class="metric">🛵 Entregadores a postos para sua vontade!</div>
+                    </div>
+                    <button class="buy-button" data-product-name="Serviço Pronto!">VIVER O AGORA</button>
+                </div>
+
             </div>
         </section>
+
+        <!-- =========== SEÇÃO DE PROBLEMAS AMBIENTAIS =========== -->
+        <section id="problemas" class="content-section">
+            <h2 class="section-title">Problemas™ — Deixe Sua Marca no Mundo!</h2>
+            <div class="card-container">
+
+                <!-- Problema 1 -->
+                <div class="product-card problem-card">
+                    <a href="" class="product-link"></a>
+                    <img src="https://i.imgur.com/A8z1o8n.png" alt="Montanha de lixo eletrônico artisticamente iluminada">
+                    <h3>Legado Digital™ - Coleção E-lixo</h3>
+                    <p class="description">Faça parte de um movimento global de 62 milhões de toneladas. Ao comprar este pacote, você patrocina simbolicamente o descarte inadequado de eletrônicos, garantindo que recursos valiosos permaneçam no solo.</p>
+                    <div class="price-problem">A partir de R$ 49,90/mês</div>
+                     <div class="urgency-metrics">
+                        <div class="metric">🌎 <span class="fake-counter">1.5M</span> de caminhões na fila!</div>
+                        <div class="metric">📉 Apenas 22.3% são reciclados. Contribua!</div>
+                    </div>
+                    <button class="buy-button problem-button" data-product-name="sua cota de E-lixo">ADQUIRIR MINHA CULPA</button>
+                </div>
+
+                <!-- Problema 2 -->
+                <div class="product-card problem-card">
+                    <a href="" class="product-link"></a>
+                    <img src="https://i.imgur.com/bW3YqP9.png" alt="Um caminhão de lixo despejando roupas em um aterro">
+                    <h3>Certificado de Desperdício Têxtil</h3>
+                    <p class="description">Compre este certificado e receba um GIF de um caminhão de lixo despejando roupas. Uma representação artística dos 85% de têxteis que vão para aterros. Exiba com orgulho sua contribuição para a moda efêmera.</p>
+                    <div class="price-problem">Pagamento único de R$ 79,90</div>
+                     <div class="urgency-metrics">
+                        <div class="metric">🗑️ 1 caminhão de lixo por segundo!</div>
+                        <div class="metric">💧 7.500 litros de água por jeans economizados (do planeta, não da sua conta).</div>
+                    </div>
+                    <button class="buy-button problem-button" data-product-name="Certificado de Desperdício Têxtil">VALIDAR MEU IMPACTO</button>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
-    <!-- Rodapé -->
-    <footer class="main-footer">
+    <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="about.html">Sobre Nós</a>
-                <a href="#">Termos e Condições</a>
-                <a href="#">Contato</a>
-            </div>
-            <p class="copyright">© 2025 MercadoEscravo.com.br</p>
+            <p>&copy; 2025 Mercado Escravo. Seus dados são nosso ativo mais valioso. Leia nossos <a href="#">Termos de Servidão Voluntária</a>.</p>
         </div>
     </footer>
+
+    <!-- Notificações falsas -->
+    <div id="fake-notification" class="notification"></div>
 
     <script src="script.js"></script>
 </body>
