@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Mercado Escravo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="cart-page">
+
+    <header>
+        <div class="container">
+            <a href="index.html"><h1 class="logo">Mercado<span>Escravo</span></h1></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Continuar Comprando</a></li>
+                    <li><a href="carrinho.html">Carrinho (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 1. VISUALIZAÇÃO DO CARRINHO (INICIAL) -->
+        <section id="cart-view">
+            <h1 class="section-title">Seu Carrinho de Necessidades</h1>
+            <div id="cart-items-container">
+                <!-- Itens do carrinho serão inseridos aki pelo JS -->
+            </div>
+            <div class="cart-summary">
+                <h2>Total: <span id="cart-total-value">R$ 0.00</span></h2>
+                <button id="finalize-purchase-btn" class="btn btn-primary">Finalizar Compra</button>
+            </div>
+        </section>
+
+        <!-- 2. TELA DE IMPACTO (Versão FINAL) -->
+        <section id="impact-view" class="hidden">
+             <div id="impact-results">
+                <!-- O impacto vai aparecer aki -->
+             </div>
+        </section>
+    </main>
+    
+    <!-- 3. OVERLAY DE CONTAGEM REGRESSIVA E POP-UPS -->
+    <div id="countdown-overlay" class="hidden">
+        <div id="timer-container">
+            <div id="timer">10</div>
+        </div>
+        <div id="popup-container">
+            <!-- Pop-ups serão inseridos aqui -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Escravo. Seus dados são nosso ativo mais valioso.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

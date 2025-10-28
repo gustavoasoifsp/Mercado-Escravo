@@ -1,36 +1,93 @@
+// =======================================================
+//  "BANCO DE DADOS" DE PRODUTOS E INSTITUIÇÕES
+// =======================================================
+const productsDB = {
+    'prod001': { name: 'Avocado Life-Pod™', price: 89.90, image: 'img/Avocado Life-Pod/protetor1.jpeg', url: 'avocado.html' },
+    'prod002': { name: 'Fonte - Garrafa Inteligente', price: 499.90, image: 'img/Fonte/garrafa2.jpg', url: 'fonte.html' },
+    'serv001': { name: 'Assinatura The Weekly Drop', price: 299.90, image: 'https://i.imgur.com/QhYhA2V.png', url: '#' },
+    'serv002': { name: 'Serviço Pronto!', price: 19.90, image: 'https://i.imgur.com/iZ2tZzG.png', url: '#' },
+    'prob001': { name: 'Legado Digital™ - Coleção E-lixo', price: 49.90, image: 'https://i.imgur.com/A8z1o8n.png', url: '#' },
+    'prob002': { name: 'Certificado de Desperdício Têxtil', price: 79.90, image: 'https://i.imgur.com/bW3YqP9.png', url: '#' }
+};
+const charitiesDB = [
+    { name: 'Team Trees', costPerUnit: 2.00, description: (units) => `Você poderia ter plantado <strong>${units} ${units > 1 ? 'árvores' : 'árvore'}</strong>.`, logo: 'https://i.imgur.com/p33v0g6.png' },
+    { name: 'The Ocean Cleanup', costPerUnit: 5.00, description: (units) => `Você poderia ter ajudado a remover <strong>${units} kg de plástico</strong> dos oceanos.`, logo: 'https://i.imgur.com/m2p2LqH.png' },
+    { name: 'Médicos Sem Fronteiras', costPerUnit: 1.50, description: (units) => `Você poderia ter fornecido <strong>${units} ${units > 1 ? 'vacinas' : 'vacina'} contra o sarampo</strong>.`, logo: 'https://i.imgur.com/kFLT63H.png' }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
 
-/* 1. LÓGICA COMPARTILHADA (CARRINHO DE COMPRAS)*/
-    
+    /* =======================================================
+       1. LÓGICA DO CARRINHO (COMPARTILHADA)
+       ======================================================= */
     const cartCountElement = document.getElementById('cart-count');
 
-    // Lê o valor do carrinho do armazenamento local do navegador
-    function getCartCount() {
-        return parseInt(localStorage.getItem('mercadoEscravoCart') || '0');
-    }
-
-    // Atualiza o número no ícone do carrinho
-    function updateCartDisplay() {
-        if (cartCountElement) {
-            cartCountElement.textContent = getCartCount();
+    function getCart() {
+    try {
+        const cartData = JSON.parse(localStorage.getItem('mercadoEscravoCart'));
+        if (Array.isArray(cartData)) {
+            return cartData;
         }
+    } catch (e) {
+    }
+    return [];
     }
 
-    // Adiciona um item ao carrinho
-    function addToCart(quantity = 1) {
-        let currentCount = getCartCount();
-        currentCount += quantity;
-        localStorage.setItem('mercadoEscravoCart', currentCount);
+    function saveCart(cart) {
+        localStorage.setItem('mercadoEscravoCart', JSON.stringify(cart));
         updateCartDisplay();
     }
 
+    function updateCartDisplay() {
+        if (cartCountElement) {
+            const cart = getCart();
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountElement.textContent = totalItems;
+        }
+    }
 
-/* 2. LÓGICA CONDICIONAL: SÓ RODA NA PÁGINA INICIAL*/
-    
-    // Verifica a existência de um elemento único da home page
+    function addToCart(productId, quantity = 1) {
+        const cart = getCart();
+        const product = productsDB[productId];
+        if (!product) {
+            console.error(`Produto com ID ${productId} não encontrado no banco de dados.`);
+            return;
+        }
+
+        const existingItem = cart.find(item => item.id === productId);
+
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            cart.push({ id: productId, quantity: quantity });
+        }
+        saveCart(cart);
+        console.log('Carrinho atualizado:', getCart()); // Log para depuração
+    }
+
+    /* =======================================================
+       2. LÓGICA DE EVENTOS GERAIS
+       ======================================================= */
+
+    // Adiciona funcionalidade a QUALQUER botão com 'data-product-id' em qualquer página
+    document.querySelectorAll('button[data-product-id]').forEach(button => {
+        button.addEventListener('click', () => {
+            console.log('Botão clicado!'); // Log para depuração
+            const productId = button.getAttribute('data-product-id');
+            
+            const quantityInput = document.getElementById('quantity');
+            let quantity = 1;
+            // Pega a quantidade apenas se estivermos em uma página de produto
+            if (quantityInput && button.id === 'add-to-cart-btn') {
+                quantity = parseInt(quantityInput.value) || 1;
+            }
+            
+            addToCart(productId, quantity);
+        });
+    });
+
+    // --- Lógica Específica da Home (se existir) ---
     if (document.getElementById('produtos')) {
-        
-        // --- Manipulação de Contadores e Estoque Falsos ---
         const fakeCounters = document.querySelectorAll('.fake-counter');
         fakeCounters.forEach(counter => {
             let count = parseInt(counter.textContent) || Math.floor(Math.random() * 300) + 100;
@@ -42,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, Math.random() * 3000 + 2000);
         });
 
-        // --- Notificações Falsas de Compra ---
         const fakeNotification = document.getElementById('fake-notification');
         const names = ['Júlia', 'Lucas', 'Beatriz', 'Guilherme', 'Mariana', 'Rafael'];
         const cities = ['de Campinas', 'de Brasília', 'de BH', 'de Salvador', 'de Fortaleza'];
@@ -55,28 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         setTimeout(showFakePurchase, 6000);
         setInterval(showFakePurchase, Math.random() * 10000 + 7000);
-
-        // --- Botões de Compra da Home Page ---
-        const buyButtons = document.querySelectorAll('.buy-button');
-        buyButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                addToCart(1); // Adiciona 1 item ao carrinho
-
-                // Mostra o alerta sarcástico
-                setTimeout(() => {
-                    const productName = button.getAttribute('data-product-name');
-                }, 100);
-            });
-        });
     }
 
-
-/* 3. LÓGICA CONDICIONAL: SÓ RODA NA PÁGINA DE PRODUTO*/
-    
-    // Verifica a existência de um elemento único da página de produto
+    // --- Lógica Específica de Página de Produto (se existir) ---
     if (document.querySelector('.product-page-container')) {
-
-        // --- Galeria de Imagens ---
         const mainImage = document.getElementById('main-product-image');
         const thumbnails = document.querySelectorAll('.thumbnail');
         thumbnails.forEach(thumb => {
@@ -86,19 +124,172 @@ document.addEventListener('DOMContentLoaded', () => {
                 mainImage.src = thumb.src;
             });
         });
-
-        // --- Botão de Adicionar ao Carrinho da Página de Produto ---
-        const addToCartButton = document.getElementById('add-to-cart-btn');
-        const quantityInput = document.getElementById('quantity');
-        
-        addToCartButton.addEventListener('click', () => {
-            const quantity = parseInt(quantityInput.value) || 1;
-            addToCart(quantity);
-        });
     }
 
-/* 4. INICIALIZAÇÃO GLOBAL*/
+    /* =======================================================
+       3. LÓGICA ESPECÍFICA DA PÁGINA DO CARRINHO
+       ======================================================= */
+    if (document.body.id === 'cart-page') {
+        // (O código da página do carrinho que já estava funcionando continua aqui...)
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartTotalElement = document.getElementById('cart-total-value');
+        const finalizeButton = document.getElementById('finalize-purchase-btn');
+        const countdownOverlay = document.getElementById('countdown-overlay');
+        const timerElement = document.getElementById('timer');
+        const popupContainer = document.getElementById('popup-container');
+        const impactView = document.getElementById('impact-view');
+        
+        let countdownInterval;
+        let popupInterval;
 
-    // Garante que o carrinho seja exibido corretamente em qualquer página
+        function renderCart() {
+            const cart = getCart();
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<h2>Seu carrinho está tragicamente vazio. <a href="index.html">Compre algo</a> para preencher este vazio.</h2>';
+                finalizeButton.disabled = true;
+                finalizeButton.style.cursor = 'not-allowed';
+                finalizeButton.style.opacity = '0.5';
+                cartTotalElement.textContent = 'R$ 0.00';
+                return;
+            }
+
+            cart.forEach(item => {
+                const product = productsDB[item.id];
+                if(product){
+                    total += product.price * item.quantity;
+                    cartItemsContainer.innerHTML += `
+                        <div class="cart-item">
+                            <img src="${product.image}" alt="${product.name}" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h3>${product.name}</h3>
+                                <p>Preço: R$ ${product.price.toFixed(2)}</p>
+                                <div class="cart-item-actions">
+                                    <label>Qtd: <input type="number" value="${item.quantity}" min="1" class="item-quantity" data-id="${item.id}"></label>
+                                    <button class="remove-item-btn" data-id="${item.id}">Remover</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            cartTotalElement.textContent = `R$ ${total.toFixed(2)}`;
+            addCartEventListeners();
+        }
+        
+        function addCartEventListeners() {
+            document.querySelectorAll('.item-quantity').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const id = e.target.getAttribute('data-id');
+                    const newQuantity = parseInt(e.target.value);
+                    updateItemQuantity(id, newQuantity);
+                });
+            });
+            document.querySelectorAll('.remove-item-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.getAttribute('data-id');
+                    removeItem(id);
+                });
+            });
+        }
+        
+        function updateItemQuantity(id, quantity) {
+            let cart = getCart();
+            const item = cart.find(i => i.id === id);
+            if (item && quantity > 0) {
+                item.quantity = quantity;
+            } else if (item && quantity <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            saveCart(cart);
+            renderCart();
+        }
+
+        function removeItem(id) {
+            let cart = getCart();
+            cart = cart.filter(i => i.id !== id);
+            saveCart(cart);
+            renderCart();
+        }
+
+        function startFinalizeSequence() {
+            countdownOverlay.classList.remove('hidden');
+            let timeLeft = 10;
+            timerElement.textContent = timeLeft;
+
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    clearInterval(popupInterval);
+                    timerElement.innerHTML = '✅';
+                    finalizeButton.textContent = 'FINALIZAR AGORA (GLORIFICADO)';
+                    finalizeButton.classList.add('glorified');
+                    finalizeButton.onclick = showImpactScreen;
+                }
+            }, 1000);
+
+            popupInterval = setInterval(showRandomPopup, 1500);
+            showRandomPopup();
+        }
+        
+        function showRandomPopup() {
+            const productIds = Object.keys(productsDB);
+            const randomId = productIds[Math.floor(Math.random() * productIds.length)];
+            const product = productsDB[randomId];
+            
+            const popup = document.createElement('a');
+            popup.href = product.url;
+            popup.className = 'popup-ad';
+            popup.style.top = `${Math.random() * 80 + 10}%`;
+            popup.style.left = `${Math.random() * 80 + 10}%`;
+            popup.innerHTML = `
+                <img src="${product.image}" alt="">
+                <p>OFERTA IMPERDÍVEL!</p>
+                <h4>${product.name}</h4>
+                <span>APENAS R$ ${product.price.toFixed(2)}</span>
+            `;
+            popupContainer.appendChild(popup);
+            setTimeout(() => popup.remove(), 4000);
+        }
+
+        function showImpactScreen() {
+            const cart = getCart();
+            const total = cart.reduce((sum, item) => sum + (productsDB[item.id].price * item.quantity), 0);
+            
+            document.getElementById('cart-view').classList.add('hidden');
+            countdownOverlay.classList.add('hidden');
+            impactView.classList.remove('hidden');
+
+            const impactResults = document.getElementById('impact-results');
+            impactResults.innerHTML = `<h1>Compra Finalizada!</h1><h2>Com os <strong>R$ ${total.toFixed(2)}</strong> que você gastou, você poderia ter feito a diferença.</h2>`;
+
+            charitiesDB.forEach(charity => {
+                const units = Math.floor(total / charity.costPerUnit);
+                if (units > 0) {
+                    impactResults.innerHTML += `
+                        <div class="impact-card">
+                            <img src="${charity.logo}" alt="${charity.name}">
+                            <p>${charity.description(units)}</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            localStorage.removeItem('mercadoEscravoCart');
+            updateCartDisplay();
+        }
+
+        finalizeButton.addEventListener('click', startFinalizeSequence, { once: true });
+        renderCart();
+    }
+
+    /* =======================================================
+       4. INICIALIZAÇÃO GLOBAL
+       ======================================================= */
     updateCartDisplay();
 });
