@@ -14,9 +14,14 @@
     <header>
         <div class="container">
             <a href="index.html"><h1 class="logo">Mercado<span>Escravo</span></h1></a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos" />
+                <button type="submit" id="search-button">Buscar</button>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Continuar Comprando</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Nossos Objetivos™</a></li>
                     <li><a href="carrinho.html">Carrinho (<span id="cart-count">0</span>)</a></li>
                 </ul>
             </nav>
@@ -26,7 +31,13 @@
     <main class="container">
         <!-- 1. VISUALIZAÇÃO DO CARRINHO (INICIAL) -->
         <section id="cart-view">
-            <h1 class="section-title">Seu Carrinho de Necessidades</h1>
+            <section class="hero card">
+                <h2>SUAS NECESSIDADES</h2>
+                <p>Não deixe para amanhã o que você pode preencher com uma compra hoje!</p>
+            </section>
+
+            <br>
+
             <div id="cart-items-container">
                 <!-- Itens do carrinho serão inseridos aki pelo JS -->
             </div>

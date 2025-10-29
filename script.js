@@ -1,36 +1,38 @@
-// =======================================================
-//  "BANCO DE DADOS" DE PRODUTOS E INSTITUIÇÕES
-// =======================================================
+// =====================
+//  "BANCO DE DADOS"        (Ent rapaziada, ñ sei se o professor vai deixar agente colocar esse bglh pq é avançado dms pra nois. Espero que sim.)   (Tem um vídeo explicando c vcs qzer entder: https://youtu.be/QOeDE7nPDq0)
+// =====================
 const productsDB = {
     'prod001': { name: 'Avocado Life-Pod™', price: 89.90, image: 'img/Avocado Life-Pod/protetor1.jpeg', url: 'avocado.html' },
     'prod002': { name: 'Fonte - Garrafa Inteligente', price: 499.90, image: 'img/Fonte/garrafa2.jpg', url: 'fonte.html' },
-    'serv001': { name: 'Assinatura The Weekly Drop', price: 299.90, image: 'https://i.imgur.com/QhYhA2V.png', url: '#' },
-    'serv002': { name: 'Serviço Pronto!', price: 19.90, image: 'https://i.imgur.com/iZ2tZzG.png', url: '#' },
-    'prob001': { name: 'Legado Digital™ - Coleção E-lixo', price: 49.90, image: 'https://i.imgur.com/A8z1o8n.png', url: '#' },
-    'prob002': { name: 'Certificado de Desperdício Têxtil', price: 79.90, image: 'https://i.imgur.com/bW3YqP9.png', url: '#' }
+    'serv001': { name: 'Assinatura The Weekly Drop', price: 299.90, image: '#', url: '#' },
+    'serv002': { name: 'Serviço Pronto!', price: 19.90, image: '#', url: '#' },
+    'prob001': { name: 'Legado Digital™ - Coleção E-lixo', price: 49.90, image: '#', url: '#' },
+    'prob002': { name: 'Certificado de Desperdício Têxtil', price: 79.90, image: '#', url: '#' }
 };
 const charitiesDB = [
-    { name: 'Team Trees', costPerUnit: 2.00, description: (units) => `Você poderia ter plantado <strong>${units} ${units > 1 ? 'árvores' : 'árvore'}</strong>.`, logo: 'https://i.imgur.com/p33v0g6.png' },
-    { name: 'The Ocean Cleanup', costPerUnit: 5.00, description: (units) => `Você poderia ter ajudado a remover <strong>${units} kg de plástico</strong> dos oceanos.`, logo: 'https://i.imgur.com/m2p2LqH.png' },
-    { name: 'Médicos Sem Fronteiras', costPerUnit: 1.50, description: (units) => `Você poderia ter fornecido <strong>${units} ${units > 1 ? 'vacinas' : 'vacina'} contra o sarampo</strong>.`, logo: 'https://i.imgur.com/kFLT63H.png' }
+    { name: 'Team Trees', costPerUnit: 2.00, description: (units) => `Você poderia ter plantado <strong>${units} ${units > 1 ? 'árvores' : 'árvore'}</strong>.`, logo: '#' },
+    { name: 'The Ocean Cleanup', costPerUnit: 5.00, description: (units) => `Você poderia ter ajudado a remover <strong>${units} kg de plástico</strong> dos oceanos.`, logo: '#' },
+    { name: 'Médicos Sem Fronteiras', costPerUnit: 1.50, description: (units) => `Você poderia ter fornecido <strong>${units} ${units > 1 ? 'vacinas' : 'vacina'} contra o sarampo</strong>.`, logo: '#' }
 ];
+
+// Tudo que tem # nois tem que trocar
 
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =======================================================
-       1. LÓGICA DO CARRINHO (COMPARTILHADA)
+       1. LÓGICA DO CARRINHO (Pra todas as páginas)
        ======================================================= */
     const cartCountElement = document.getElementById('cart-count');
 
     function getCart() {
-    try {
-        const cartData = JSON.parse(localStorage.getItem('mercadoEscravoCart'));
-        if (Array.isArray(cartData)) {
-            return cartData;
+        try {
+            const cartData = JSON.parse(localStorage.getItem('mercadoEscravoCart'));
+            if (Array.isArray(cartData)) {
+                return cartData;
+            }
+        } catch (e) {
         }
-    } catch (e) {
-    }
-    return [];
+        return [];
     }
 
     function saveCart(cart) {
@@ -66,10 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =======================================================
-       2. LÓGICA DE EVENTOS GERAIS
+       2. EVENTOS GERAIS
        ======================================================= */
 
-    // Adiciona funcionalidade a QUALQUER botão com 'data-product-id' em qualquer página
+    // Adiciona a funcionalidade pra QUALQUER botão com 'data-product-id' em qualquer página
     document.querySelectorAll('button[data-product-id]').forEach(button => {
         button.addEventListener('click', () => {
             console.log('Botão clicado!'); // Log para depuração
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const quantityInput = document.getElementById('quantity');
             let quantity = 1;
-            // Pega a quantidade apenas se estivermos em uma página de produto
+            // Pega a quantidade apenas se estiver na página do produto
             if (quantityInput && button.id === 'add-to-cart-btn') {
                 quantity = parseInt(quantityInput.value) || 1;
             }
@@ -86,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Lógica Específica da Home (se existir) ---
+    // --- Lógica Pra Home (se tiver) ---
     if (document.getElementById('produtos')) {
         const fakeCounters = document.querySelectorAll('.fake-counter');
         fakeCounters.forEach(counter => {
@@ -113,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(showFakePurchase, Math.random() * 10000 + 7000);
     }
 
-    // --- Lógica Específica de Página de Produto (se existir) ---
+    // --- Lógica Pra Página de Produto (se tiver) ---
     if (document.querySelector('.product-page-container')) {
         const mainImage = document.getElementById('main-product-image');
         const thumbnails = document.querySelectorAll('.thumbnail');
@@ -127,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =======================================================
-       3. LÓGICA ESPECÍFICA DA PÁGINA DO CARRINHO
+       3. LÓGICA PRA DA PÁGINA DO CARRINHO
        ======================================================= */
     if (document.body.id === 'cart-page') {
         // (O código da página do carrinho que já estava funcionando continua aqui...)
@@ -135,12 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartTotalElement = document.getElementById('cart-total-value');
         const finalizeButton = document.getElementById('finalize-purchase-btn');
         const countdownOverlay = document.getElementById('countdown-overlay');
-        const timerElement = document.getElementById('timer');
-        const popupContainer = document.getElementById('popup-container');
         const impactView = document.getElementById('impact-view');
-        
-        let countdownInterval;
-        let popupInterval;
 
         function renderCart() {
             const cart = getCart();
@@ -216,45 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function startFinalizeSequence() {
-            countdownOverlay.classList.remove('hidden');
-            let timeLeft = 10;
-            timerElement.textContent = timeLeft;
-
-            countdownInterval = setInterval(() => {
-                timeLeft--;
-                timerElement.textContent = timeLeft;
-                if (timeLeft <= 0) {
-                    clearInterval(countdownInterval);
-                    clearInterval(popupInterval);
-                    timerElement.innerHTML = '✅';
-                    finalizeButton.textContent = 'FINALIZAR AGORA (GLORIFICADO)';
-                    finalizeButton.classList.add('glorified');
-                    finalizeButton.onclick = showImpactScreen;
-                }
-            }, 1000);
-
-            popupInterval = setInterval(showRandomPopup, 1500);
-            showRandomPopup();
-        }
-        
-        function showRandomPopup() {
-            const productIds = Object.keys(productsDB);
-            const randomId = productIds[Math.floor(Math.random() * productIds.length)];
-            const product = productsDB[randomId];
-            
-            const popup = document.createElement('a');
-            popup.href = product.url;
-            popup.className = 'popup-ad';
-            popup.style.top = `${Math.random() * 80 + 10}%`;
-            popup.style.left = `${Math.random() * 80 + 10}%`;
-            popup.innerHTML = `
-                <img src="${product.image}" alt="">
-                <p>OFERTA IMPERDÍVEL!</p>
-                <h4>${product.name}</h4>
-                <span>APENAS R$ ${product.price.toFixed(2)}</span>
-            `;
-            popupContainer.appendChild(popup);
-            setTimeout(() => popup.remove(), 4000);
+            showImpactScreen(); 
         }
 
         function showImpactScreen() {
@@ -287,9 +246,5 @@ document.addEventListener('DOMContentLoaded', () => {
         finalizeButton.addEventListener('click', startFinalizeSequence, { once: true });
         renderCart();
     }
-
-    /* =======================================================
-       4. INICIALIZAÇÃO GLOBAL
-       ======================================================= */
     updateCartDisplay();
 });
