@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getCart() {
         try {
-            const cartData = JSON.parse(localStorage.getItem('mercadoEscravoCart'));
+            const cartData = JSON.parse(localStorage.getItem('mercadoAlorCart'));
             if (Array.isArray(cartData)) {
                 return cartData;
             }
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function saveCart(cart) {
-        localStorage.setItem('mercadoEscravoCart', JSON.stringify(cart));
+        localStorage.setItem('mercadoAlorCart', JSON.stringify(cart));
         updateCartDisplay();
     }
 
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            localStorage.removeItem('mercadoEscravoCart');
+            localStorage.removeItem('mercadoAlorCart');
             updateCartDisplay();
         }
 
