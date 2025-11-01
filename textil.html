@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado de Consciência™ - Arte do Descarte Têxtil | Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <h1 class="logo">Mercado<span>Alor</span></h1>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos" />
+                <button type="submit" id="search-button">Buscar</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="nos.html">Sobre Nós</a></li>
+                    <li><a href="objetivos.html">Nossos Objetivos™</a></li>
+                    <li><a href="carrinho.html">Carrinho (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container product-page-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="img/Textil/textil1.jpg" alt="GIF de caminhão despejando roupas">
+            </div>
+            <div class="thumbnails">
+                <img src="img/Textil/textil1.jpg" alt="Thumbnail 1" class="thumbnail active">
+                <img src="img/Textil/textil2.png" alt="Thumbnail 2" class="thumbnail">
+                <img src="img/Textil/textil3.jpg" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Certificado de Consciência™ – Arte do Descarte Têxtil</h1>
+            <p class="tagline">Transforme o impacto invisível em uma obra digital.</p>
+            <div class="price">R$ 39,90 <span class="old-price">R$ 79,90</span> / certificado</div>
+
+            <div class="call-to-action">
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="prob002">Adquirir
+                    Certificado</button>
+            </div>
+
+            <div class="urgency-metrics">
+                <div class="metric">🧵 <span class="fake-counter">12.748</span> certificados emitidos este ano!</div>
+                <div class="metric">♻️ Uma forma simbólica de participar da transformação.</div>
+            </div>
+
+            <div class="product-description">
+                <h3>Descrição</h3>
+                <p>Adquira o <strong>Certificado de Consciência™</strong> e receba um <strong>GIF exclusivo</strong> de
+                    um caminhão de lixo despejando roupas — uma representação artística e sincera dos <strong>85% de
+                        têxteis que vão parar em aterros</strong> todos os anos.</p>
+                <p>Mais do que um simples arquivo digital, este certificado é um lembrete visual de que cada escolha
+                    conta — e cada compra também. Com ele, você apoia simbolicamente a reflexão sobre o ciclo da moda e
+                    o futuro do que vestimos.</p>
+                <p>Transforme o incômodo em ação. Possuir este GIF é reconhecer o impacto.</p>
+            </div>
+        </div>
+
+        <div class="product-extra-info">
+            <h3>Detalhes do Certificado</h3>
+            <ul>
+                <li><strong>Formato:</strong> GIF digital em alta resolução</li>
+                <li><strong>Conteúdo:</strong> Caminhão de lixo despejando roupas em um aterro</li>
+                <li><strong>Propósito:</strong> Representação artística dos 85% de têxteis descartados no mundo</li>
+                <li><strong>Entrega:</strong> Envio instantâneo por e-mail após a compra</li>
+                <li><strong>Certificação:</strong> Arquivo numerado, com selo digital de participação simbólica</li>
+            </ul>
+
+            <h3 class="reviews-title">Depoimentos de Colecionadores</h3>
+            <div class="review card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-body">"Ver o GIF no meu desktop me lembra todos os dias da minha escolha de fazer minha
+                    parte."</p>
+                <div class="review-author">– Helena, Estilista Consciente</div>
+            </div>
+            <div class="review card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-body">"Comprei o certificado e mostrei na reunião da empresa. Todos aplaudiram minha
+                    decisão."</p>
+                <div class="review-author">– Roberto, Executivo ESG</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Alor. Leia nossos <a href="termos.html">Termos de Servidão Voluntária</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
