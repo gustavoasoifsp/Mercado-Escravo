@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let total = 0;
 
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<h2>Seu carrinho está tragicamente vazio. <a href="index.html">Compre algo</a> para preencher este vazio.</h2>';
+                cartItemsContainer.innerHTML = '<h2>Seu carrinho está tragicamente vazio. <a href="home.html">Compre algo</a> para preencher este vazio.</h2>';
                 finalizeButton.disabled = true;
                 finalizeButton.style.cursor = 'not-allowed';
                 finalizeButton.style.opacity = '0.5';
