@@ -1,10 +1,4 @@
-/*====================
-  ARQUIVO: style.css
-======================*/
 
-/*=========================
-  1. VARIÁVEIS GLOBAIS
-=========================*/
 :root {
   --primary-color: #0052cc;
   --secondary-color: #ffc400;
@@ -21,7 +15,7 @@
 }
 
 /*=========================
-  2. REGRAS GERAIS
+ REGRAS GERAIS
 =========================*/
 * {
   box-sizing: border-box;
@@ -64,7 +58,7 @@ a {
 }
 
 /*=========================
-  3. CABEÇALHO E RODAPÉ
+ CABEÇALHO E RODAPÉ
 =========================*/
 header {
   background: var(--primary-color);
@@ -190,7 +184,7 @@ footer, .banner {
 }
 
 /*=========================
-  4. CLASSES GENÉRICAS
+ CLASSES GENÉRICAS
 =========================*/
 .card {
   background: var(--card-bg);
@@ -240,7 +234,7 @@ footer, .banner {
 }
 
 /*=========================
-  5. HOME
+   HOME
 =========================*/
 .hero {
   text-align: center;
@@ -362,7 +356,7 @@ footer, .banner {
 }
 
 /*=========================
-  6. PÁGINA DE PRODUTO
+   PÁGINA DE PRODUTO
 =========================*/
 .product-page-container {
   display: flex;
@@ -475,7 +469,7 @@ footer, .banner {
 }
 
 /*=========================
-  7. PÁGINA DO CARRINHO
+   PÁGINA DO CARRINHO
 =========================*/
 
 /* 1. ESTILOS DA PÁGINA DO CARRINHO */
