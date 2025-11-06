@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avocado Life-Pod™ - Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="home.html"><h1 class="logo">Mercado<span>Alor</span></h1></a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos" />
+                <button type="submit" id="search-button">Buscar</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="nos.html">Sobre Nós</a></li>
+                    <li><a href="objetivos.html">Nossos Objetivos™</a></li>
+                    <li><a href="carrinho.html">Carrinho (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container product-page-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="img/Avocado Life-Pod/protetor1.jpeg" alt="Cápsula de plástico para guardar metade de um abacate">
+            </div>
+            <div class="thumbnails">
+                <img src="img/Avocado Life-Pod/protetor1.jpeg" alt="Thumbnail 1" class="thumbnail active">
+                <img src="img/Avocado Life-Pod/protetor2.jpeg" alt="Thumbnail 2" class="thumbnail">
+                <img src="img/Avocado Life-Pod/protetor3.png" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Avocado Life-Pod™</h1>
+            <p class="tagline">Porque a oxidação do seu abacate é uma crise que não pode esperar.</p>
+            <div class="price">R$ 89,90 <span class="old-price">R$ 159,90</span></div>
+            <div class="call-to-action">
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="prod001">Adicionar ao Carrinho</button>
+            </div>
+            <div class="urgency-metrics">
+                <div class="metric">🔥 <span class="fake-counter">215</span> pessoas estão desejando este pod agora!</div>
+                <div class="metric">✅ <strong>Compra Verificada:</strong> Joana de Pinheiros acabou de salvar um abacate!</div>
+            </div>
+            <div class="product-description">
+                <h3>Descrição</h3>
+                <p>Você se esforçou. Comprou o pão artesanal. E agora, o dilema: o que fazer com a outra metade? Apresentamos o <strong>Avocado Life-Pod™</strong>, a solução super-engenheirada para um problema de 24 horas. Feito com plástico premium, ele gera um item a mais para lavar e guardar, em troca da promessa de um abacate ligeiramente menos marrom.</p>
+            </div>
+        </div>
+
+        <div class="product-extra-info">
+            <h3>Especificações Técnicas</h3>
+            <ul>
+                <li><strong>Material:</strong> Plástico ABS</li>
+                <li><strong>Vedação:</strong> Silicone de alto grau</li>
+                <li><strong>Cor:</strong> Verde-abacate-corporativo™</li>
+                <li><strong>Sustentabilidade:</strong> Projetado para durar até por 2 semanas.</li>
+            </ul>
+            <h3 class="reviews-title">Avaliações de Nossos Clientes</h3>
+            <div class="review card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-body">"Finalmente meu abacate pode ter o recipiente que merece! Sempre achei que não era o suficiente só um pote normal, isso salvou minha vida ❤️❤️"</p>
+                <div class="review-author">- Jéssica, Influencer</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Alor. Leia nossos <a href="termos.html">Termos de Servidão Voluntária</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
