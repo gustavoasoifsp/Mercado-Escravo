@@ -4,7 +4,7 @@
 const productsDB = {
     'prod001': { name: 'Avocado Life-Pod™', price: 89.90, image: 'img/Avocado Life-Pod/protetor1.jpeg', url: 'avocado.html' },
     'prod002': { name: 'Fonte - Garrafa Inteligente', price: 499.90, image: 'img/Fonte/garrafa2.jpg', url: 'fonte.html' },
-    'prod003': { name: 'Pet Rock - Pet Stone Manual de Treinamanto e Acessórios', price: 80.00, image: 'img/Fonte/garrafa2.jpg', url: 'pedra.html' },
+    'prod003': { name: 'Pet Rock - Pet Stone Manual de Treinamanto e Acessórios', price: 80.00, image: 'img/pedra/pedra1.png', url: 'pedra.html' },
     'serv001': { name: 'Assinatura The Weekly Drop', price: 799.90, image: 'img/The Weekly Drop/drop1.png', url: 'drop.html' },
     'serv002': { name: 'Serviço Pronto!', price: 19.90, image: 'img/Pronto!/pronto1.png', url: 'pronto.html' },
     'prob001': { name: 'Legado Digital™ - Coleção E-lixo', price: 49.90, image: 'img/Eletrônico/eletronico3.png', url: 'eletronico.html' },
@@ -15,7 +15,7 @@ const charitiesDB = [
         name: 'Team Trees', 
         costPerUnit: 2.00, 
         description: (units) => `Você poderia ter plantado <strong>${units} ${units > 1 ? 'árvores' : 'árvore'}</strong>.`, 
-        logo: 'img/ONG/TeamTrees.png' 
+        logo: 'img/ONG/TeamTrees.png'
     },
     { 
         name: 'The Ocean Cleanup', 
@@ -97,7 +97,11 @@ const charitiesDB = [
     },
 ];
 
+
+
 // Tudo que tem # nois tem que trocar
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
