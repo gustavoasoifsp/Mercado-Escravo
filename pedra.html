@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avocado Life-Pod™ - Mercado Alor</title>
+    <title>Pet Rock™ - Mercado Alor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <header>
         <div class="container">
-            <a href="home.html"><h1 class="logo">Mercado<span>Alor</span></h1></a>
+            <a href="home.html">
+                <h1 class="logo">Mercado<span>Alor</span></h1>
+            </a>
             <div class="search-bar">
                 <input type="text" placeholder="Buscar produtos" />
                 <button type="submit" id="search-button">Buscar</button>
@@ -32,7 +36,8 @@
     <main class="container product-page-container">
         <div class="product-gallery">
             <div class="main-image">
-                <img id="main-product-image" src="img/pedra/pedra1.png" alt="Pet Rock - Pet Stone Manual de Treinamanto e Acessórios">
+                <img id="main-product-image" src="img/pedra/pedra1.png"
+                    alt="Pet Rock™ - Pedra de estimação com manual e acessórios">
             </div>
             <div class="thumbnails">
                 <img src="img/pedra/pedra1.png" alt="Thumbnail 1" class="thumbnail active">
@@ -42,36 +47,47 @@
         </div>
 
         <div class="product-details">
-            <h1 class="product-title">Pet Rock - Pet Stone Manual de Treinamanto e Acessórios</h1>
+            <h1 class="product-title">Pet Rock™ - Pedra de Estimação</h1>
             <p class="tagline">Cuidar de um pet não precisa ser tão complicado assim</p>
             <div class="price">R$ 80,00 <span class="old-price">R$ 100,00</span></div>
             <div class="call-to-action">
                 <label for="quantity">Quantidade:</label>
                 <input type="number" id="quantity" value="1" min="1">
-                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="prod003">Adicionar ao Carrinho</button>
+                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="prod005">Adicionar ao
+                    Carrinho</button>
             </div>
             <div class="urgency-metrics">
-                <div class="metric">🔥 <span class="fake-counter">215</span> pessoas estão desejando este pod agora!</div>
-                <div class="metric">✅ <strong>Compra Verificada:</strong> Dave jones acabou de adquirir seu pet!</div>
+                <div class="metric">🔥 <span class="fake-counter">125</span> pessoas comprando pedras</div>
+                <div class="metric">📦 Apenas <span class="fake-stock">13</span> unidades!</div>
             </div>
             <div class="product-description">
                 <h3>Descrição</h3>
-                <p>O "pet rock" é um produto para quem sempre quis cuidar de um pet, é com sua compra, o kit inclue também roupas customizadas para o seu pet além de um manual de instruções.</p>
+                <p>O <strong>Pet Rock™</strong> é o companheiro perfeito para quem é ocupado demais para cuidar de um
+                    pet tradicional. Cada pedra vem com um manual de treinamento completo, caixa de transporte e
+                    acessórios personalizados. Sem latidos, sem sujeira — o pet perfeito.</p>
             </div>
         </div>
 
         <div class="product-extra-info">
             <h3>Especificações Técnicas</h3>
             <ul>
-                <li><strong>Materiais:</strong>Manual de instruções, Customizações e Pedra</li>
-                <li><strong>Vedação:</strong>Caixa de papelão vedada</li>
-                <li><strong>Sustentabilidade:</strong> Projetado para durar até pela eternidade</li>
+                <li><strong>Materiais:</strong> SiO₂, Al₂O₃, K₂O/Na₂O, Fe₂O₃</li>
+                <li><strong>Vedação:</strong> Caixa de papelão</li>
+                <li><strong>Sustentabilidade:</strong> Produto 100% ecológico, durável e reciclável</li>
+                <li><strong>Dimensões:</strong> Variável (cada Pet Rock é único!)</li>
             </ul>
             <h3 class="reviews-title">Avaliações de Nossos Clientes</h3>
             <div class="review card">
                 <div class="review-stars">★★★★★</div>
-                <p class="review-body">"Me sentia muito sozinho mas com esse pet, consigo ficar acompanhado do meu amigo para sempre"</p>
+                <p class="review-body">"Me sentia muito sozinho, mas com esse pet consigo ficar acompanhado do meu amigo
+                    para sempre."</p>
                 <div class="review-author">- Ronaldo</div>
+            </div>
+            <div class="review card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-body">"Excelente companhia! Só que o meu veio deformado, eu queria um Per Rock mais padrãozinho."
+                </p>
+                <div class="review-author">- Juliana</div>
             </div>
         </div>
     </main>
@@ -84,4 +100,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

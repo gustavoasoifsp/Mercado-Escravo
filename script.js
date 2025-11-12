@@ -3,12 +3,12 @@
 // =====================
 const productsDB = {
     'prod001': { name: 'Avocado Life-Pod™', price: 89.90, image: 'img/Avocado Life-Pod/protetor1.jpeg', url: 'avocado.html' },
-    'prod002': { name: 'Fonte - Garrafa Inteligente', price: 499.90, image: 'img/Fonte/garrafa2.jpg', url: 'fonte.html' },
-    'prod003': { name: 'Pet Rock - Pet Stone Manual de Treinamanto e Acessórios', price: 80.00, image: 'img/pedra/pedra1.png', url: 'pedra.html' },
+    'prod002': { name: 'Fonte - Garrafa inteligente', price: 499.90, image: 'img/Fonte/garrafa2.jpg', url: 'fonte.html' },
+    'prod003': { name: 'Pet Rock™ - Pedra de estimação', price: 80.00, image: 'img/pedra/pedra1.png', url: 'pedra.html' },
     'serv001': { name: 'Assinatura The Weekly Drop', price: 799.90, image: 'img/The Weekly Drop/drop1.png', url: 'drop.html' },
     'serv002': { name: 'Serviço Pronto!', price: 19.90, image: 'img/Pronto!/pronto1.png', url: 'pronto.html' },
     'prob001': { name: 'Legado Digital™ - Coleção E-lixo', price: 49.90, image: 'img/Eletrônico/eletronico3.png', url: 'eletronico.html' },
-    'prob002': { name: 'Certificado de Desperdício Têxtil', price: 79.90, image: 'img/Textil/textil1.jpg', url: 'textil.html' }
+    'prob002': { name: 'Certificado de desperdício têxtil', price: 79.90, image: 'img/Textil/textil1.jpg', url: 'textil.html' }
 };
 const charitiesDB = [
     { 
@@ -199,6 +199,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         setTimeout(showFakePurchase, 6000);
         setInterval(showFakePurchase, Math.random() * 10000 + 7000);
+    }
+    
+    // =========================================================================
+    //  ADICIONAR PRODUTO ALEATÓRIO QUANDO CLICA NO BANNER
+    // =========================================================================
+    const heroBanner = document.getElementById('hero-banner');
+    if (heroBanner) {
+        heroBanner.addEventListener('click', () => {
+            // Pega todos os id dos produtos do databank
+            const productIds = Object.keys(productsDB);
+
+            // Escolhe um aleatório
+            const randomIndex = Math.floor(Math.random() * productIds.length);
+
+            // Pega o id
+            const randomProductId = productIds[randomIndex];
+
+            // coloca o produto no carrinho
+            addToCart(randomProductId, 1);
+            
+        });
     }
 
     // --- Lógica Pra Página de Produto (se tiver) ---
