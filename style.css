@@ -38,18 +38,21 @@ body {
   margin: 0;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
 main {
   flex: 1;
+  width: 100%;
 }
 
 a {
   text-decoration: none;
   cursor: pointer;
+  color: var(--primary-color);
 }
 
 .container {
@@ -179,7 +182,8 @@ footer a {
   color: var(--secondary-color);
 }
 
-footer, .banner {
+footer,
+.banner {
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -269,6 +273,11 @@ footer, .banner {
   gap: 30px;
 }
 
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .product-card img {
   max-width: 100%;
   height: 200px;
@@ -282,6 +291,10 @@ footer, .banner {
 .product-card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.product-card a {
   color: var(--primary-color);
 }
 
@@ -371,11 +384,16 @@ footer, .banner {
 .product-gallery img {
   width: 100%;
   border-radius: var(--radius);
+}
+
+.main-image img {
   box-shadow: var(--shadow);
 }
 
+
 #main-product-image {
-  height: 600px;
+  max-height: 500px;
+  object-fit: contain;
 }
 
 .thumbnails {
@@ -421,6 +439,7 @@ footer, .banner {
   align-items: center;
   gap: 15px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .call-to-action label {
@@ -433,6 +452,10 @@ footer, .banner {
   border: 1px solid #ccc;
   border-radius: 5px;
   text-align: center;
+}
+
+#add-to-cart-btn {
+  flex-grow: 1;
 }
 
 .product-extra-info {
@@ -448,6 +471,7 @@ footer, .banner {
 .product-extra-info ul {
   list-style-position: inside;
   margin-bottom: 30px;
+  padding-left: 0;
 }
 
 .product-extra-info li {
@@ -496,6 +520,7 @@ footer, .banner {
   box-shadow: var(--shadow);
   gap: 20px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .cart-item-image {
@@ -505,6 +530,7 @@ footer, .banner {
   border-radius: 5px;
   background: #fdfdfd;
   align-self: center;
+  flex-shrink: 0;
 }
 
 .cart-item-details {
@@ -539,6 +565,7 @@ footer, .banner {
   cursor: pointer;
   font-weight: 700;
   text-decoration: underline;
+  padding: 0;
 }
 
 .cart-summary {
@@ -555,10 +582,14 @@ footer, .banner {
 
 #cart-banner {
   cursor: default;
-  width: 1200px;
   transform: translateY(0);
-  box-shadow: var(--no-shadow-hover);
+  box-shadow: var(--shadow);
 }
+
+#cart-banner:hover {
+  box-shadow: var(--shadow-hover);
+}
+
 
 /* 2. OVERLAY E CONTADOR */
 .hidden {
@@ -758,34 +789,8 @@ footer, .banner {
 /*=========================
   8. RESPONSIVIDADE
 =========================*/
-@media (max-width: 991px) {
-  header .container {
-    justify-content: center;
-  }
 
-  .search-bar {
-    order: 3;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  nav {
-    margin-top: 10px;
-  }
-
-  nav ul {
-    gap: 10px;
-  }
-
-  .hero h2 {
-    font-size: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-}
-
+/* Dispositivos Médios e Grandes */
 @media (min-width: 992px) {
   .product-page-container {
     display: grid;
@@ -794,16 +799,6 @@ footer, .banner {
       "gallery details"
       "extra extra";
     gap: 40px;
-  }
-
-  @media (max-width: 768px) {
-    .banner h1 {
-      font-size: 2.8rem;
-    }
-
-    .banner p {
-      font-size: 1.2rem;
-    }
   }
 
   .product-gallery {
@@ -816,5 +811,83 @@ footer, .banner {
 
   .product-extra-info {
     grid-area: extra;
+  }
+}
+
+/* Tablets e dispositivos menores */
+@media (max-width: 991px) {
+  header .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 100%;
+    order: 3;
+  }
+
+  nav {
+    order: 2;
+  }
+
+  .logo {
+    order: 1;
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .banner h1 {
+    font-size: 2.8rem;
+  }
+
+  .banner p {
+    font-size: 1.2rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cart-item-details {
+    width: 100%;
+  }
+
+  .cart-item-actions {
+    justify-content: center;
+  }
+
+  .cart-summary {
+    text-align: center;
+  }
+
+  .cart-summary .btn {
+    width: 100%;
+  }
+
+  .impact-card {
+    flex-direction: column;
+    text-align: center;
   }
 }

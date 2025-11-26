@@ -8,8 +8,11 @@ const productsDB = {
     'serv001': { name: 'Assinatura The Weekly Drop', price: 799.90, image: 'img/The Weekly Drop/drop1.png', url: 'drop.html' },
     'serv002': { name: 'Serviço Pronto!', price: 19.90, image: 'img/Pronto!/pronto1.png', url: 'pronto.html' },
     'prob001': { name: 'Legado Digital™ - Coleção E-lixo', price: 49.90, image: 'img/Eletrônico/eletronico3.png', url: 'eletronico.html' },
-    'prob002': { name: 'Certificado de desperdício têxtil', price: 79.90, image: 'img/Textil/textil1.jpg', url: 'textil.html' }
+    'prob002': { name: 'Certificado de desperdício têxtil', price: 79.90, image: 'img/Textil/textil1.jpg', url: 'textil.html' },
+    // Adicionando IDs que faltavam para os botões da home
+    'prod005': { name: 'Pet Rock™ - Pedra de estimação', price: 80.00, image: 'img/pedra/pedra1.png', url: 'pedra.html' }
 };
+
 const charitiesDB = [
     { 
         name: 'Team Trees', 
@@ -97,12 +100,6 @@ const charitiesDB = [
     },
 ];
 
-
-
-// Tudo que tem # nois tem que trocar
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =======================================================
@@ -117,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return cartData;
             }
         } catch (e) {
+            console.error("Erro ao ler o carrinho do localStorage:", e);
         }
         return [];
     }
@@ -136,18 +134,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addToCart(productId, quantity = 1) {
         const cart = getCart();
-        const product = productsDB[productId];
+        // O ID do produto na página da pedra é 'prod005', mas no banco de dados está como 'prod003' na home.
+        // Vamos normalizar isso. Se for 'prod005', usamos os dados de 'prod003'.
+        const effectiveProductId = productId === 'prod005' ? 'prod003' : productId;
+        const product = productsDB[effectiveProductId];
+
         if (!product) {
-            console.error(`Produto com ID ${productId} não encontrado no banco de dados.`);
+            console.error(`Produto com ID ${productId} (efetivo: ${effectiveProductId}) não encontrado no banco de dados.`);
             return;
         }
 
-        const existingItem = cart.find(item => item.id === productId);
+        const existingItem = cart.find(item => item.id === effectiveProductId);
 
         if (existingItem) {
             existingItem.quantity += quantity;
         } else {
-            cart.push({ id: productId, quantity: quantity });
+            cart.push({ id: effectiveProductId, quantity: quantity });
         }
         saveCart(cart);
         console.log('Carrinho atualizado:', getCart()); // Log para depuração
@@ -162,14 +164,15 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             console.log('Botão clicado!'); // Log para depuração
             const productId = button.getAttribute('data-product-id');
-            
-            const quantityInput = document.getElementById('quantity');
+
+            // Procura pelo input de quantidade associado a este botão.
+            const quantityInput = button.previousElementSibling;
             let quantity = 1;
-            // Pega a quantidade apenas se estiver na página do produto
-            if (quantityInput && button.id === 'add-to-cart-btn') {
+
+            if (quantityInput && quantityInput.id === 'quantity' && quantityInput.type === 'number') {
                 quantity = parseInt(quantityInput.value) || 1;
             }
-            
+
             addToCart(productId, quantity);
         });
     });
@@ -188,19 +191,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const fakeNotification = document.getElementById('fake-notification');
-        const names = ['Júlia', 'Lucas', 'Beatriz', 'Guilherme', 'Mariana', 'Rafael'];
-        const cities = ['de Campinas', 'de Brasília', 'de BH', 'de Salvador', 'de Fortaleza'];
-        function showFakePurchase() {
-            const randomName = names[Math.floor(Math.random() * names.length)];
-            const randomCity = cities[Math.floor(Math.random() * cities.length)];
-            fakeNotification.textContent = `⚡️ ${randomName} ${randomCity} acabou de fazer uma compra!`;
-            fakeNotification.classList.add('show');
-            setTimeout(() => fakeNotification.classList.remove('show'), 4000);
+        if (fakeNotification) {
+            const names = ['Júlia', 'Lucas', 'Beatriz', 'Guilherme', 'Mariana', 'Rafael'];
+            const cities = ['de Campinas', 'de Brasília', 'de BH', 'de Salvador', 'de Fortaleza'];
+            function showFakePurchase() {
+                const randomName = names[Math.floor(Math.random() * names.length)];
+                const randomCity = cities[Math.floor(Math.random() * cities.length)];
+                fakeNotification.textContent = `⚡️ ${randomName} ${randomCity} acabou de fazer uma compra!`;
+                fakeNotification.classList.add('show');
+                setTimeout(() => fakeNotification.classList.remove('show'), 4000);
+            }
+            setTimeout(showFakePurchase, 6000);
+            setInterval(showFakePurchase, Math.random() * 10000 + 7000);
         }
-        setTimeout(showFakePurchase, 6000);
-        setInterval(showFakePurchase, Math.random() * 10000 + 7000);
     }
-    
+
     // =========================================================================
     //  ADICIONAR PRODUTO ALEATÓRIO QUANDO CLICA NO BANNER
     // =========================================================================
@@ -218,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // coloca o produto no carrinho
             addToCart(randomProductId, 1);
-            
+
         });
     }
 
@@ -226,13 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.product-page-container')) {
         const mainImage = document.getElementById('main-product-image');
         const thumbnails = document.querySelectorAll('.thumbnail');
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                thumbnails.forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
-                mainImage.src = thumb.src;
+        if (mainImage && thumbnails.length > 0) {
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                    mainImage.src = thumb.src;
+                });
             });
-        });
+        }
     }
 
     /* =======================================================
@@ -255,20 +262,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 finalizeButton.disabled = true;
                 finalizeButton.style.cursor = 'not-allowed';
                 finalizeButton.style.opacity = '0.5';
-                cartTotalElement.textContent = 'R$ 0.00';
+                cartTotalElement.textContent = 'R$ 0,00';
                 return;
             }
 
+            // Habilita o botão se houver itens
+            finalizeButton.disabled = false;
+            finalizeButton.style.cursor = 'pointer';
+            finalizeButton.style.opacity = '1';
+
             cart.forEach(item => {
                 const product = productsDB[item.id];
-                if(product){
+                if (product) {
                     total += product.price * item.quantity;
                     cartItemsContainer.innerHTML += `
                         <div class="cart-item">
                             <img src="${product.image}" alt="${product.name}" class="cart-item-image">
                             <div class="cart-item-details">
                                 <h3>${product.name}</h3>
-                                <p>Preço: R$ ${product.price.toFixed(2)}</p>
+                                <p>Preço: R$ ${product.price.toFixed(2).replace('.', ',')}</p>
                                 <div class="cart-item-actions">
                                     <label>Qtd: <input type="number" value="${item.quantity}" min="1" class="item-quantity" data-id="${item.id}"></label>
                                     <button class="remove-item-btn" data-id="${item.id}">Remover</button>
@@ -279,10 +291,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            cartTotalElement.textContent = `R$ ${total.toFixed(2)}`;
+            cartTotalElement.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
             addCartEventListeners();
         }
-        
+
         function addCartEventListeners() {
             document.querySelectorAll('.item-quantity').forEach(input => {
                 input.addEventListener('change', (e) => {
@@ -298,13 +310,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         }
-        
+
         function updateItemQuantity(id, quantity) {
             let cart = getCart();
             const item = cart.find(i => i.id === id);
             if (item && quantity > 0) {
                 item.quantity = quantity;
             } else if (item && quantity <= 0) {
+                // Se a quantidade for 0 ou menos, remove o item
                 cart = cart.filter(i => i.id !== id);
             }
             saveCart(cart);
@@ -318,22 +331,29 @@ document.addEventListener('DOMContentLoaded', () => {
             renderCart();
         }
 
+        // Removi a sequência de finalização com timer para simplificar e corrigir o bug
+        // que impedia o funcionamento sem ela.
         function startFinalizeSequence() {
-            showImpactScreen(); 
+            showImpactScreen();
         }
 
         function showImpactScreen() {
             const cart = getCart();
-            const total = cart.reduce((sum, item) => sum + (productsDB[item.id].price * item.quantity), 0);
-            
+            const total = cart.reduce((sum, item) => {
+                const product = productsDB[item.id];
+                return sum + (product ? product.price * item.quantity : 0);
+            }, 0);
+
             document.getElementById('cart-view').classList.add('hidden');
-            countdownOverlay.classList.add('hidden');
             impactView.classList.remove('hidden');
 
             const impactResults = document.getElementById('impact-results');
-            impactResults.innerHTML = `<h1>Compra Finalizada!</h1><h2> Obrigado por investir em você! Com os <strong>R$ ${total.toFixed(2)}</strong> que você gastou, você poderia ter comprado várias coisas chatas.</h2>`;
+            impactResults.innerHTML = `<h1>Compra Finalizada!</h1><h2> Obrigado por investir em você! Com os <strong>R$ ${total.toFixed(2).replace('.', ',')}</strong> que você gastou, você poderia ter feito várias coisas chatas.</h2>`;
 
-            charitiesDB.forEach(charity => {
+            // Embaralha as instituições de caridade para mostrar uma seleção diferente a cada vez
+            const shuffledCharities = charitiesDB.sort(() => 0.5 - Math.random());
+
+            shuffledCharities.slice(0, 5).forEach(charity => { // Mostra as 5 primeiras
                 const units = Math.floor(total / charity.costPerUnit);
                 if (units > 0) {
                     impactResults.innerHTML += `
@@ -344,12 +364,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                 }
             });
-            
+
             localStorage.removeItem('mercadoAlorCart');
             updateCartDisplay();
         }
 
-        finalizeButton.addEventListener('click', startFinalizeSequence, { once: true });
+        finalizeButton.addEventListener('click', startFinalizeSequence);
         renderCart();
     }
     updateCartDisplay();
