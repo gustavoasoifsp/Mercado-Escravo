@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Água Diet™ - Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="home.html"><h1 class="logo">Mercado<span>Alor</span></h1></a>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar produtos" />
+            <button type="submit" id="search-button">Buscar</button>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="nos.html">Sobre Nós</a></li>
+                <li><a href="objetivos.html">Nossos Objetivos™</a></li>
+                <li><a href="carrinho.html">Carrinho (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container product-page-container">
+
+    <div class="product-gallery">
+        <div class="main-image">
+            <img id="main-product-image" src="img/Diet Water/dietWater.png" alt="Garrafa de Água Diet">
+        </div>
+        <div class="thumbnails">
+            <img src="img/Diet Water/dietWater.png" alt="Thumbnail 1" class="thumbnail active">
+            <img src="img/Diet Water/diet-water.jpg" alt="Thumbnail 2" class="thumbnail">
+        </div>
+    </div>
+
+    <div class="product-details">
+        <h1 class="product-title">Água Diet™</h1>
+        <p class="tagline">Pureza otimizada para o seu dia.</p>
+
+        <div class="price">R$ 12,90 <span class="old-price">R$ 39,90</span></div>
+
+        <div class="call-to-action">
+            <label for="quantity">Quantidade:</label>
+            <input type="number" id="quantity" value="1" min="1">
+            <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="prod004">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="urgency-metrics">
+            <div class="metric">💧 <span class="fake-counter">342</span> clientes visualizaram este produto hoje.</div>
+            <div class="metric">📦 Apenas <span class="fake-stock">13</span> unidades!</div>
+        </div>
+
+        <div class="product-description">
+            <h3>Descrição</h3>
+            <p>
+                Água é essencial — mas nem toda água é igual. A <strong>Água Diet™</strong> passa por um processo 
+                interno de refinamento que mantém sua composição natural enquanto oferece uma experiência de leveza 
+                que consumidores modernos procuram em suas escolhas diárias.
+            </p>
+            <p>
+                Seu perfil equilibrado e sua apresentação minimalista tornam a Água Diet™ ideal para quem busca um produto 
+                confiável, discreto e cuidadosamente formulado para acompanhar qualquer estilo de vida. É hidratação com 
+                intenção. É rotina com precisão.
+            </p>
+        </div>
+    </div>
+
+    <div class="product-extra-info">
+        <h3>Especificações Técnicas</h3>
+        <ul>
+            <li><strong>Ingredientes:</strong> Água purificada</li>
+            <li><strong>Calorias:</strong> 0 kcal</li>
+            <li><strong>pH:</strong> 7,0 (estabilidade ideal)</li>
+            <li><strong>Processo:</strong> Filtragem em etapas certificadas</li>
+            <li><strong>Embalagem:</strong> Plástico transparente de alta qualidade</li>
+        </ul>
+
+        <h3 class="reviews-title">Avaliações de Nossos Clientes</h3>
+
+        <div class="review card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-body">
+                "Uma escolha excelente para quem quer manter a hidratação alinhada a uma rotina equilibrada. 
+                Sinto que combina muito com meu dia."
+            </p>
+            <div class="review-author">- Aline, 34</div>
+        </div>
+
+        <div class="review card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-body">
+                "Refrescante e muito leve. Exatamente o que eu procurava."
+            </p>
+            <div class="review-author">- Roberto, 42</div>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Mercado Alor. Leia nossos <a href="termos.html">Termos de Servidão Voluntária</a>.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
