@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="home2.html">
+                <h1 class="logo">Mercado<span>Alor</span></h1>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products" />
+                <button type="submit" id="search-button">Search</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="nos2.html">About Us</a></li>
+                    <li><a href="objetivos2.html">Our Objectives™</a></li>
+                    <li><a href="carrinho.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="home.html">En-Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero card" id="hero-banner">
+            <h2>BUY NOW!</h2>
+            <p>Don’t leave for tomorrow what you could fill with a purchase today!</p>
+        </section>
+
+        <!-- =========== PRODUCTS SECTION =========== -->
+        <section id="produtos" class="content-section">
+            <h2 class="section-title">Products — Solutions for your inconveniences</h2>
+            <div class="card-container">
+
+                <!-- Produto 1 -->
+                <div class="product-card card">
+                    <a href="avocado2.html" class="product-link">
+                        <img src="img/Avocado Life-Pod/protetor1.jpeg" alt="Plastic capsule to store half an avocado">
+                        <h3>Avocado Life-Pod™</h3>
+                    </a>
+                    <p class="description">Elevate your brunch. With ergonomic design and silicone sealing, our pod hugs
+                        the remaining half of your avocado.</p>
+                    <div class="price">$ 89.90 <span class="old-price">$ 159.90</span></div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🔥 <span class="fake-counter">215</span> foodies optimizing right now!</div>
+                        <div class="metric">📦 Only <span class="fake-stock">9</span> units left!</div>
+                    </div>
+                    <button class="btn btn-primary" data-product-id="prod001">SAVE MY AVOCADO</button>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="product-card card">
+                    <a href="pedra2.html" class="product-link">
+                        <img src="img/pedra/pedra1.png" alt="A rock with eyes.">
+                        <h3>Pet Rock™ — Your Pet Stone</h3>
+                    </a>
+                    <p class="description">The <i>Pet Rock</i> is made for those who are far too busy for a conventional
+                        pet.</p>
+                    <div class="price">$ 80.00 <span class="old-price">$ 100.00</span></div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🔥 <span class="fake-counter">125</span> people buying rocks</div>
+                        <div class="metric">📦 Only <span class="fake-stock">13</span> units left!</div>
+                    </div>
+                    <button class="btn btn-primary" data-product-id="prod003">HANDLE WITH CARE</button>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="product-card card">
+                    <a href="water2.html" class="product-link">
+                        <img src="img/Diet Water/diet-water.jpg" alt="A bottle of water labeled 'Diet'.">
+                        <h3>Diet Water™</h3>
+                    </a>
+                    <p class="description">Essential water, refined for an experience of lightness, wellness, and
+                        health.</p>
+                    <div class="price">$ 12.90 <span class="old-price">$ 39.90</span></div>
+                    <div class="urgency-metrics">
+                        <div class="metric">💧 <span class="fake-counter">125</span> people improving their health</div>
+                        <div class="metric">📦 Only <span class="fake-stock">13</span> units left!</div>
+                    </div>
+                    <button class="btn btn-primary" data-product-id="prod004">DRINK WITH HEALTH</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========== SERVICES SECTION =========== -->
+        <section id="servicos" class="content-section">
+            <h2 class="section-title">Services — Outsource your effort</h2>
+            <div class="card-container">
+
+                <!-- Serviço 1 -->
+                <div class="product-card card">
+                    <a href="drop2.html" class="product-link">
+                        <img src="img/The Weekly Drop/drop1.png" alt="Subscription box with disposable clothing">
+                        <h3>The Weekly Drop</h3>
+                    </a>
+                    <p class="description">Subscribe and receive every week a box filled with micro-trends. Wear once,
+                        post always. Our service normalizes disposal, freeing you from the burden of ownership.</p>
+                    <div class="price">$ 299.90/month</div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🔥 <span class="fake-counter">412</span> influencers subscribing!</div>
+                        <div class="metric">📈 Subscription slots almost gone!</div>
+                    </div>
+                    <button class="btn btn-primary" data-product-id="serv001">DISPOSE IN STYLE</button>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="product-card card">
+                    <a href="pronto2.html" class="product-link">
+                        <img src="img/Pronto!/pronto1.png" alt="Delivery rider speeding">
+                        <h3>Pronto! Delivery in 15min</h3>
+                    </a>
+                    <p class="description">Need a single item, right now? We dispatch a courier to deliver one soda or
+                        one battery. Convenience has never been so irresistible.</p>
+                    <div class="price">$19.90 fee per item</div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🔥 <span class="fake-counter">503</span> immediatists ordering!</div>
+                        <div class="metric">🛵 Couriers standing by for your whims!</div>
+                    </div>
+                    <button class="btn btn-primary" data-product-id="serv002">LIVE THE NOW</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========== ENVIRONMENTAL PROBLEMS SECTION =========== -->
+        <section id="problemas" class="content-section">
+            <h2 class="section-title">Problems™ — Leave your mark on the world!</h2>
+            <div class="card-container">
+
+                <!-- Problema 1 -->
+                <div class="product-card problem-card card">
+                    <a href="eletronico2.html" class="product-link">
+                        <img src="img/Eletrônico/eletronico3.png" alt="Electronics">
+                        <h3>Digital Legacy™ — E-waste Collection</h3>
+                    </a>
+                    <p class="description">Be part of a global movement of 62 million tons. By buying this package, you
+                        symbolically sponsor improper electronic disposal.</p>
+                    <div class="price-problem">Starting at $49.90/month</div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🌎 <span class="fake-counter">1.5M</span> trucks in the queue!</div>
+                        <div class="metric">📉 Only 22.3% is recycled. Contribute!</div>
+                    </div>
+                    <button class="btn btn-danger" data-product-id="prob001">ACQUIRE MY GUILT</button>
+                </div>
+
+                <!-- Problema 2 -->
+                <div class="product-card problem-card card">
+                    <a href="textil2.html" class="product-link">
+                        <img src="img/Textil/textil1.jpg" alt="A garbage truck dumping clothes in a landfill">
+                        <h3>Textile Waste Certificate</h3>
+                    </a>
+                    <p class="description">Buy this certificate and receive a GIF of a garbage truck dumping clothes. An
+                        artistic representation of the 85% of textiles that end up in landfills.</p>
+                    <div class="price-problem">One-time payment of $79.90</div>
+                    <div class="urgency-metrics">
+                        <div class="metric">🗑️ 1 garbage truck per second!</div>
+                        <div class="metric">💧 7,500 liters of water saved per pair of jeans.</div>
+                    </div>
+                    <button class="btn btn-danger" data-product-id="prob002">VALIDATE MY IMPACT</button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Alor. Read our <a href="termos2.html">Terms of Voluntary Servitude</a>.</p>
+        </div>
+    </footer>
+
+    <div id="fake-notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

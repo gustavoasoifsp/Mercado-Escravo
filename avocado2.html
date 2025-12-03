@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avocado Life-Pod™ - Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="home2.html">
+                <h1 class="logo">Mercado<span>Alor</span></h1>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products" />
+                <button type="submit" id="search-button">Search</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="nos.html">About Us</a></li>
+                    <li><a href="objetivos.html">Our Objectives™</a></li>
+                    <li><a href="carrinho.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="avocado.html">En-Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container product-page-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="img/Avocado Life-Pod/protetor1.jpeg"
+                    alt="Plastic capsule for storing half an avocado">
+            </div>
+            <div class="thumbnails">
+                <img src="img/Avocado Life-Pod/protetor1.jpeg" alt="Thumbnail 1" class="thumbnail active">
+                <img src="img/Avocado Life-Pod/protetor2.jpeg" alt="Thumbnail 2" class="thumbnail">
+                <img src="img/Avocado Life-Pod/protetor3.png" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Avocado Life-Pod™</h1>
+            <p class="tagline">Because your avocado’s oxidation is a crisis that simply cannot wait.</p>
+            <div class="price">$ 89.90 <span class="old-price">$ 159.90</span></div>
+            <div class="call-to-action">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="prod001">Add to Cart</button>
+            </div>
+            <div class="urgency-metrics">
+                <div class="metric">🔥 <span class="fake-counter">215</span> people wanting this pod right now!</div>
+                <div class="metric">✅ <strong>Verified Purchase:</strong> Joana from Pinheiros just saved an avocado!
+                </div>
+            </div>
+            <div class="product-description">
+                <h3>Description</h3>
+                <p>You tried your best. You bought the artisanal bread. And now, the dilemma: what do you do with the
+                    other half? Introducing the <strong>Avocado Life-Pod™</strong>, the over-engineered solution to a
+                    24-hour problem. Made with premium plastic, it adds one more item for you to wash and store — in
+                    exchange for the promise of a slightly less brown avocado.</p>
+            </div>
+        </div>
+
+        <div class="product-extra-info">
+            <h3>Technical Specifications</h3>
+            <ul>
+                <li><strong>Material:</strong> ABS Plastic</li>
+                <li><strong>Seal:</strong> High-grade silicone</li>
+                <li><strong>Color:</strong> Corporate-Avocado-Green™</li>
+                <li><strong>Sustainability:</strong> Designed to last for up to 2 weeks.</li>
+            </ul>
+            <h3 class="reviews-title">Reviews From Our Customers</h3>
+            <div class="review card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-body">“Finally my avocado can have the container it deserves! I always knew a regular
+                    jar wasn’t enough — this saved my life ❤️❤️”</p>
+                <div class="review-author">– Jéssica, Influencer</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Alor. Read our <a href="termos2.html">Terms of Voluntary Servitude</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

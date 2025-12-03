@@ -3,11 +3,11 @@
 // =====================
 const productsDB = {
     'prod001': { name: 'Avocado Life-Pod™', price: 89.90, image: 'img/Avocado Life-Pod/protetor1.jpeg', url: 'avocado.html' },
-    'prod002': { name: 'Fonte - Garrafa inteligente', price: 499.90, image: 'img/Fonte/garrafa2.jpg', url: 'fonte.html' },
+    /* 'prod002': { name: 'Fonte - Garrafa inteligente', price: 499.90, image: 'img/Fonte/garrafa2.jpg', url: 'fonte.html' }, */
     'prod003': { name: 'Pet Rock™ - Pedra de estimação', price: 80.00, image: 'img/pedra/pedra1.png', url: 'pedra.html' },
     'prod004': { name: 'Água Diet™', price: 12.90, image: 'img/Diet Water/diet-water.jpg', url: 'water.html' },
-    'prod006': { name: 'phoenix Labubu™ - 17Cm Pelúcia Com Caixa Exclusiva', price: 93.30, image: 'img/labubu/labubu1.png', url: 'labubu.html' },
-    'prod007': { name: 'Tênis da Balenciaga', price: 900.00, image: 'img/tenis/tenis1.png', url: 'tenis.html' },
+    /* 'prod006': { name: 'phoenix Labubu™ - 17Cm Pelúcia Com Caixa Exclusiva', price: 93.30, image: 'img/labubu/labubu1.png', url: 'labubu.html' },
+    'prod007': { name: 'Tênis da Balenciaga', price: 900.00, image: 'img/tenis/tenis1.png', url: 'tenis.html' }, */
     'serv001': { name: 'Assinatura The Weekly Drop', price: 799.90, image: 'img/The Weekly Drop/drop1.png', url: 'drop.html' },
     'serv002': { name: 'Serviço Pronto!', price: 19.90, image: 'img/Pronto!/pronto1.png', url: 'pronto.html' },
     'prob001': { name: 'Legado Digital™ - Coleção E-lixo', price: 49.90, image: 'img/Eletrônico/eletronico3.png', url: 'eletronico.html' },
@@ -17,89 +17,89 @@ const productsDB = {
 };
 
 const charitiesDB = [
-    { 
-        name: 'Team Trees', 
-        costPerUnit: 2.00, 
-        description: (units) => `Você poderia ter plantado <strong>${units} ${units > 1 ? 'árvores' : 'árvore'}</strong>.`, 
+    {
+        name: 'Team Trees',
+        costPerUnit: 2.00,
+        description: (units) => `Você poderia ter plantado <strong>${units} ${units > 1 ? 'árvores' : 'árvore'}</strong>.`,
         logo: 'img/ONG/TeamTrees.png'
     },
-    { 
-        name: 'The Ocean Cleanup', 
-        costPerUnit: 5.00, 
-        description: (units) => `Você poderia ter ajudado a remover <strong>${units} kg de plástico</strong> dos oceanos.`, 
-        logo: 'img/ONG/TheOceanCleanup.png' 
+    {
+        name: 'The Ocean Cleanup',
+        costPerUnit: 5.00,
+        description: (units) => `Você poderia ter ajudado a remover <strong>${units} kg de plástico</strong> dos oceanos.`,
+        logo: 'img/ONG/TheOceanCleanup.png'
     },
-    { 
-        name: 'Médicos Sem Fronteiras', 
-        costPerUnit: 1.50, 
-        description: (units) => `Você poderia ter fornecido <strong>${units} ${units > 1 ? 'vacinas' : 'vacina'} contra o sarampo</strong>.`, 
-        logo: 'img/ONG/MedicosSemFronteiras.png' 
+    {
+        name: 'Médicos Sem Fronteiras',
+        costPerUnit: 1.50,
+        description: (units) => `Você poderia ter fornecido <strong>${units} ${units > 1 ? 'vacinas' : 'vacina'} contra o sarampo</strong>.`,
+        logo: 'img/ONG/MedicosSemFronteiras.png'
     },
-    { 
-        name: 'Water.org', 
-        costPerUnit: 3.00, 
-        description: (units) => `Você poderia ter garantido <strong>água potável por ${units} ${units > 1 ? 'dias' : 'dia'}</strong> a famílias em comunidades sem acesso.`, 
-        logo: 'img/ONG/WaterOrg.png' 
+    {
+        name: 'Water.org',
+        costPerUnit: 3.00,
+        description: (units) => `Você poderia ter garantido <strong>água potável por ${units} ${units > 1 ? 'dias' : 'dia'}</strong> a famílias em comunidades sem acesso.`,
+        logo: 'img/ONG/WaterOrg.png'
     },
-    { 
-        name: 'WWF - Proteja a Vida Selvagem', 
-        costPerUnit: 7.00, 
-        description: (units) => `Você poderia ter ajudado a proteger <strong>${units} ${units > 1 ? 'animais ameaçados' : 'animal ameaçado'}</strong> e seus habitats.`, 
-        logo: 'img/ONG/WWF.png' 
+    {
+        name: 'WWF - Proteja a Vida Selvagem',
+        costPerUnit: 7.00,
+        description: (units) => `Você poderia ter ajudado a proteger <strong>${units} ${units > 1 ? 'animais ameaçados' : 'animal ameaçado'}</strong> e seus habitats.`,
+        logo: 'img/ONG/WWF.png'
     },
-    { 
-        name: 'Amnesty International', 
-        costPerUnit: 4.00, 
-        description: (units) => `Você poderia ter contribuído para <strong>${units} ${units > 1 ? 'investigações de direitos humanos' : 'investigação de direitos humanos'}</strong> em andamento.`, 
-        logo: 'img/ONG/AmnestyInternational.png' 
+    {
+        name: 'Amnesty International',
+        costPerUnit: 4.00,
+        description: (units) => `Você poderia ter contribuído para <strong>${units} ${units > 1 ? 'investigações de direitos humanos' : 'investigação de direitos humanos'}</strong> em andamento.`,
+        logo: 'img/ONG/AmnestyInternational.png'
     },
-    { 
-        name: 'Girls Who Code', 
-        costPerUnit: 6.00, 
-        description: (units) => `Você poderia ter ajudado a ensinar <strong>${units} ${units > 1 ? 'meninas' : 'menina'}</strong> a programar.`, 
-        logo: 'img/ONG/GirlsWhoCode.jpg' 
+    {
+        name: 'Girls Who Code',
+        costPerUnit: 6.00,
+        description: (units) => `Você poderia ter ajudado a ensinar <strong>${units} ${units > 1 ? 'meninas' : 'menina'}</strong> a programar.`,
+        logo: 'img/ONG/GirlsWhoCode.jpg'
     },
-    { 
-        name: 'Rainforest Trust', 
-        costPerUnit: 2.50, 
-        description: (units) => `Você poderia ter protegido <strong>${units} ${units > 1 ? 'm² de floresta tropical' : 'm² de floresta tropical'}</strong> da destruição.`, 
-        logo: 'img/ONG/RainforestTrust.jpg' 
+    {
+        name: 'Rainforest Trust',
+        costPerUnit: 2.50,
+        description: (units) => `Você poderia ter protegido <strong>${units} ${units > 1 ? 'm² de floresta tropical' : 'm² de floresta tropical'}</strong> da destruição.`,
+        logo: 'img/ONG/RainforestTrust.jpg'
     },
-    { 
-        name: 'Charity: Water', 
-        costPerUnit: 5.00, 
-        description: (units) => `Você poderia ter fornecido <strong>${units} ${units > 1 ? 'litros de água limpa' : 'litro de água limpa'}</strong> para comunidades carentes.`, 
-        logo: 'img/ONG/CharityWater.jpg' 
+    {
+        name: 'Charity: Water',
+        costPerUnit: 5.00,
+        description: (units) => `Você poderia ter fornecido <strong>${units} ${units > 1 ? 'litros de água limpa' : 'litro de água limpa'}</strong> para comunidades carentes.`,
+        logo: 'img/ONG/CharityWater.jpg'
     },
-    { 
-        name: 'World Food Programme', 
-        costPerUnit: 0.80, 
-        description: (units) => `Você poderia ter oferecido <strong>${units} ${units > 1 ? 'refeições' : 'refeição'}</strong> a quem passa fome.`, 
-        logo: 'img/ONG/WFP.png' 
+    {
+        name: 'World Food Programme',
+        costPerUnit: 0.80,
+        description: (units) => `Você poderia ter oferecido <strong>${units} ${units > 1 ? 'refeições' : 'refeição'}</strong> a quem passa fome.`,
+        logo: 'img/ONG/WFP.png'
     },
-    { 
-        name: 'UNICEF', 
-        costPerUnit: 3.50, 
-        description: (units) => `Você poderia ter garantido <strong>${units} ${units > 1 ? 'kits escolares' : 'kit escolar'}</strong> para crianças em zonas de conflito.`, 
-        logo: 'img/ONG/UNICEF.jpg' 
+    {
+        name: 'UNICEF',
+        costPerUnit: 3.50,
+        description: (units) => `Você poderia ter garantido <strong>${units} ${units > 1 ? 'kits escolares' : 'kit escolar'}</strong> para crianças em zonas de conflito.`,
+        logo: 'img/ONG/UNICEF.jpg'
     },
-    { 
-        name: 'GiveDirectly', 
-        costPerUnit: 10.00, 
-        description: (units) => `Você poderia ter transferido diretamente <strong>ajuda financeira a ${units} ${units > 1 ? 'famílias' : 'família'}</strong> em situação de pobreza extrema.`, 
-        logo: 'img/ONG/GiveDirectly.png' 
+    {
+        name: 'GiveDirectly',
+        costPerUnit: 10.00,
+        description: (units) => `Você poderia ter transferido diretamente <strong>ajuda financeira a ${units} ${units > 1 ? 'famílias' : 'família'}</strong> em situação de pobreza extrema.`,
+        logo: 'img/ONG/GiveDirectly.png'
     },
-    { 
-        name: 'Coalition for Rainforest Nations', 
-        costPerUnit: 4.50, 
-        description: (units) => `Você poderia ter ajudado a preservar <strong>${units} ${units > 1 ? 'hectares de floresta' : 'hectare de floresta'}</strong> e reduzir emissões globais.`, 
-        logo: 'img/ONG/CoalitionForRainforestNations.png' 
+    {
+        name: 'Coalition for Rainforest Nations',
+        costPerUnit: 4.50,
+        description: (units) => `Você poderia ter ajudado a preservar <strong>${units} ${units > 1 ? 'hectares de floresta' : 'hectare de floresta'}</strong> e reduzir emissões globais.`,
+        logo: 'img/ONG/CoalitionForRainforestNations.png'
     },
-    { 
-        name: 'Habitat for Humanity', 
-        costPerUnit: 15.00, 
-        description: (units) => `Você poderia ter contribuído para construir <strong>${units} ${units > 1 ? 'casas' : 'casa'}</strong> para famílias sem moradia.`, 
-        logo: 'img/ONG/HabitatForHumanity.png' 
+    {
+        name: 'Habitat for Humanity',
+        costPerUnit: 15.00,
+        description: (units) => `Você poderia ter contribuído para construir <strong>${units} ${units > 1 ? 'casas' : 'casa'}</strong> para famílias sem moradia.`,
+        logo: 'img/ONG/HabitatForHumanity.png'
     },
 ];
 

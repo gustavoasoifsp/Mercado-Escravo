@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Package™ - Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="home2.html">
+                <h1 class="logo">Mercado<span>Alor</span></h1>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products" />
+                <button type="submit" id="search-button">Search</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="nos2.html">About Us</a></li>
+                    <li><a href="objetivos2.html">Our Objectives™</a></li>
+                    <li><a href="carrinho.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="eletronico.html">En-Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container product-page-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="img/Eletrônico/eletronico3.png"
+                    alt="Mountain of discarded electronics">
+            </div>
+            <div class="thumbnails">
+                <img src="img/Eletrônico/eletronico3.png" alt="Thumbnail 1" class="thumbnail active">
+                <img src="img/Eletrônico/eletronico2.jpg" alt="Thumbnail 2" class="thumbnail">
+                <img src="img/Eletrônico/eletronico1.jpg" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">E-Waste Package™ – Sponsor Global Disposal</h1>
+            <p class="tagline">Be part of a global movement of 62 million tons.</p>
+            <div class="price">$ 59.90 <span class="old-price">$ 99.90</span> / symbolic contribution</div>
+
+            <div class="call-to-action">
+                <label for="quantity">Contributions:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="prob001">Sponsor Now</button>
+            </div>
+
+            <div class="urgency-metrics">
+                <div class="metric">🌍 <span class="fake-counter">24,382</span> people have contributed this month!
+                </div>
+                <div class="metric">♻️ Every new purchase helps keep the global chain alive.</div>
+            </div>
+
+            <div class="product-description">
+                <h3>Description</h3>
+                <p>By acquiring the <strong>E-Waste Package™</strong>, you join millions of consumers who keep the world
+                    moving. Your purchase symbolically sponsors the improper disposal of electronics — a global
+                    phenomenon that already adds up to <strong>62 million tons</strong> every year.</p>
+                <p>If you and two more people buy a new smartphone, together you will have contributed around <strong>3
+                        tons</strong> of technological waste. It's more than a product: it's a way to join the flow. To
+                    be part of something bigger. To keep the gears turning.</p>
+            </div>
+        </div>
+
+        <div class="product-extra-info">
+            <h3>Movement Details</h3>
+            <ul>
+                <li><strong>Scale:</strong> 62 million tons of electronic waste per year</li>
+                <li><strong>Source:</strong> Smartphones, laptops, home appliances, and “indispensable” gadgets</li>
+                <li><strong>Average participation:</strong> 2.4 kg of e-waste per individual purchase</li>
+                <li><strong>Recognition:</strong> Digital certificate as a symbolic sponsor of global disposal</li>
+            </ul>
+
+            <h3 class="reviews-title">Participant Testimonials</h3>
+            <div class="review card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-body">“I bought the package and finally realized how powerful consumption really is. It
+                    feels good to be part of the world.”</p>
+                <div class="review-author">– Marina, Engaged and Connected</div>
+            </div>
+            <div class="review card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-body">“Sponsoring global disposal made me reflect. Still, I bought a new tablet right
+                    after. I guess that’s how the cycle continues.”</p>
+                <div class="review-author">– Felipe, Sustainability Analyst</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Alor. Read our <a href="termos2.html">Terms of Voluntary Servitude</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

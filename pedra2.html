@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Rock™ - Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="home2.html">
+                <h1 class="logo">Mercado<span>Alor</span></h1>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products" />
+                <button type="submit" id="search-button">Search</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="nos2.html">About Us</a></li>
+                    <li><a href="objetivos2.html">Our Objectives™</a></li>
+                    <li><a href="carrinho.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="pedra.html">En-Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container product-page-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="img/pedra/pedra1.png"
+                    alt="Pet Rock™ - Pet rock with manual and accessories">
+            </div>
+            <div class="thumbnails">
+                <img src="img/pedra/pedra1.png" alt="Thumbnail 1" class="thumbnail active">
+                <img src="img/pedra/pedra2.png" alt="Thumbnail 2" class="thumbnail">
+                <img src="img/pedra/pedra3.png" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Pet Rock™ - Pet Companion Stone</h1>
+            <p class="tagline">Taking care of a pet doesn’t have to be that complicated</p>
+            <div class="price">$15.99 <span class="old-price">$19.99</span></div>
+            <div class="call-to-action">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="prod003">
+                    Add to Cart
+                </button>
+            </div>
+            <div class="urgency-metrics">
+                <div class="metric">🔥 <span class="fake-counter">125</span> people buying rocks</div>
+                <div class="metric">📦 Only <span class="fake-stock">13</span> left!</div>
+            </div>
+            <div class="product-description">
+                <h3>Description</h3>
+                <p>The <strong>Pet Rock™</strong> is the perfect companion for anyone too busy to care for a traditional
+                    pet. Each rock comes with a complete training manual, a carrying box, and personalized accessories.
+                    No barking, no mess — the perfect pet.</p>
+            </div>
+        </div>
+
+        <div class="product-extra-info">
+            <h3>Technical Specifications</h3>
+            <ul>
+                <li><strong>Materials:</strong> SiO₂, Al₂O₃, K₂O/Na₂O, Fe₂O₃</li>
+                <li><strong>Sealing:</strong> Cardboard box</li>
+                <li><strong>Sustainability:</strong> 100% eco-friendly, durable, and recyclable product</li>
+                <li><strong>Dimensions:</strong> Variable (every Pet Rock is unique!)</li>
+            </ul>
+            <h3 class="reviews-title">Customer Reviews</h3>
+            <div class="review card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-body">"I used to feel very lonely, but with this pet I can now be accompanied by my
+                    friend forever."</p>
+                <div class="review-author">- Ronaldo</div>
+            </div>
+            <div class="review card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-body">"Excellent companion! But mine came a bit deformed — I wanted a more standard
+                    Pet Rock."</p>
+                <div class="review-author">- Juliana</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Alor. Read our <a href="termos2.html">Terms of Voluntary Servitude</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

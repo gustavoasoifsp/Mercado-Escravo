@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Weekly Drop™ - Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="home2.html">
+                <h1 class="logo">Mercado<span>Alor</span></h1>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products" />
+                <button type="submit" id="search-button">Search</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="nos2.html">About Us</a></li>
+                    <li><a href="objetivos2.html">Our Objectives™</a></li>
+                    <li><a href="carrinho.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="drop.html">En-Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container product-page-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="img/The Weekly Drop/drop1.png" alt="Box of micro-trend clothing">
+            </div>
+            <div class="thumbnails">
+                <img src="img/The Weekly Drop/drop1.png" alt="Thumbnail 1" class="thumbnail active">
+                <img src="img/The Weekly Drop/drop2.jpg" alt="Thumbnail 2" class="thumbnail">
+                <img src="img/The Weekly Drop/drop3.png" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">The Weekly Drop™ – Micro-Trend Subscription</h1>
+            <p class="tagline">Style is fleeting. Keep up.</p>
+            <div class="price">$ 799.90 <span class="old-price">$ 1,299.90</span> / month</div>
+
+            <div class="call-to-action">
+                <label for="quantity">Months:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="serv001">Subscribe Now</button>
+            </div>
+
+            <div class="urgency-metrics">
+                <div class="metric">🔥 <span class="fake-counter">512</span> fashion victims subscribed this week!</div>
+                <div class="metric">📦 Only <span class="fake-stock">9</span> spots left in the next drop!</div>
+            </div>
+
+            <div class="product-description">
+                <h3>Description</h3>
+                <p>With <strong>The Weekly Drop™</strong>, you no longer need to think about fashion — we think for you.
+                    Every week, receive a box containing <strong>3 pieces based on micro-trends that just went
+                        viral</strong>. Wear them for the weekend, post them online, and get ready for the next fashion
+                    cycle.</p>
+            </div>
+        </div>
+
+        <div class="product-extra-info">
+            <h3>Subscription Details</h3>
+            <ul>
+                <li><strong>Frequency:</strong> 1 box per week</li>
+                <li><strong>Items per box:</strong> 3 (clothes, accessories, or fleeting trends)</li>
+                <li><strong>Available sizes:</strong> XS to XL</li>
+                <li><strong>Curatorship:</strong> AI + influencers</li>
+            </ul>
+
+            <h3 class="reviews-title">Reviews From Our Customers</h3>
+            <div class="review card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-body">“I subscribed three weeks ago and I’ve already completely forgotten how to choose
+                    my own clothes. Liberating!”</p>
+                <div class="review-author">– Lara, Content Creator</div>
+            </div>
+            <div class="review card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-body">“I get the trends before everyone else… and throw them out before they go out of
+                    style. It’s the natural cycle of life.”</p>
+                <div class="review-author">– Bruno, Personal Branding Consultant</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Alor. Read our <a href="termos2.html">Terms of Voluntary Servitude</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

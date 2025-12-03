@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronto!™ - Mercado Alor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="home2.html">
+                <h1 class="logo">Mercado<span>Alor</span></h1>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products" />
+                <button type="submit" id="search-button">Search</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="nos2.html">About Us</a></li>
+                    <li><a href="objetivos2.html">Our Objectives™</a></li>
+                    <li><a href="carrinho.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="pronto.html">En-Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container product-page-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="img/Pronto!/pronto1.png" alt="Fast single-item delivery">
+            </div>
+            <div class="thumbnails">
+                <img src="img/Pronto!/pronto1.png" alt="Thumbnail 1" class="thumbnail active">
+                <img src="img/Pronto!/pronto2.jpg" alt="Thumbnail 2" class="thumbnail">
+                <img src="img/Pronto!/pronto3.jpg" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Pronto!™ – Single-Item Delivery in Minutes</h1>
+            <p class="tagline">Desire doesn’t wait.</p>
+            <div class="price">$3.99 <span class="old-price">$7.99</span> / delivery</div>
+
+            <div class="call-to-action">
+                <label for="quantity">Number of deliveries:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="serv002">Order Now</button>
+            </div>
+
+            <div class="urgency-metrics">
+                <div class="metric">⚡ <span class="fake-counter">873</span> cravings fulfilled today!</div>
+                <div class="metric">🚴‍♂️ <span class="fake-stock">4</span> couriers available in your radius!</div>
+            </div>
+
+            <div class="product-description">
+                <h3>Description</h3>
+                <p><strong>Pronto!™</strong> is the ultimate service for anyone who refuses to wait. Order <em>a single item</em> — whatever you want, whenever you want — and get it in less than 15 minutes. A cold soda? That one specific chocolate? A lonely AA battery? The choice is yours.</p>
+            </div>
+        </div>
+
+        <div class="product-extra-info">
+            <h3>Service Details</h3>
+            <ul>
+                <li><strong>Average delivery time:</strong> 12 minutes</li>
+                <li><strong>Coverage area:</strong> Selected urban centers</li>
+                <li><strong>Limit:</strong> 1 item per order</li>
+                <li><strong>Payment:</strong> Credit Card, Instant Transfer</li>
+            </ul>
+
+            <h3 class="reviews-title">Customer Reviews</h3>
+            <div class="review card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-body">"I ordered a battery and it arrived before I convinced myself to get up from the couch and look in the drawer. Revolutionary."</p>
+                <div class="review-author">– Igor, Developer</div>
+            </div>
+            <div class="review card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-body">"I bought a chocolate just to test it. Arrived in 10 minutes. Loved it! I’m definitely ordering more!"</p>
+                <div class="review-author">– Júlia, Influencer</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mercado Alor. Read our <a href="termos2.html">Terms of Voluntary Servitude</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
