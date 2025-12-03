@@ -6,11 +6,13 @@ const productsDB = {
     'prod002': { name: 'Fonte - Garrafa inteligente', price: 499.90, image: 'img/Fonte/garrafa2.jpg', url: 'fonte.html' },
     'prod003': { name: 'Pet Rock™ - Pedra de estimação', price: 80.00, image: 'img/pedra/pedra1.png', url: 'pedra.html' },
     'prod004': { name: 'Água Diet™', price: 12.90, image: 'img/Diet Water/diet-water.jpg', url: 'water.html' },
+    'prod006': { name: 'phoenix Labubu™ - 17Cm Pelúcia Com Caixa Exclusiva', price: 93.30, image: 'img/labubu/labubu1.png', url: 'labubu.html' },
+    'prod007': { name: 'Tênis da Balenciaga', price: 900.00, image: 'img/tenis/tenis1.png', url: 'tenis.html' },
     'serv001': { name: 'Assinatura The Weekly Drop', price: 799.90, image: 'img/The Weekly Drop/drop1.png', url: 'drop.html' },
     'serv002': { name: 'Serviço Pronto!', price: 19.90, image: 'img/Pronto!/pronto1.png', url: 'pronto.html' },
     'prob001': { name: 'Legado Digital™ - Coleção E-lixo', price: 49.90, image: 'img/Eletrônico/eletronico3.png', url: 'eletronico.html' },
     'prob002': { name: 'Certificado de desperdício têxtil', price: 79.90, image: 'img/Textil/textil1.jpg', url: 'textil.html' },
-    // Adicionando IDs que faltavam para os botões da home
+
     'prod005': { name: 'Pet Rock™ - Pedra de estimação', price: 80.00, image: 'img/pedra/pedra1.png', url: 'pedra.html' }
 };
 
